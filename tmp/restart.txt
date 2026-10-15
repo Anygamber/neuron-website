@@ -1,0 +1,2 @@
+# Touch/upload this file (or any change under tmp/) to ask Passenger to restart the app.
+restart

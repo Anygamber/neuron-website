@@ -1,0 +1,20 @@
+---
+# cPanel Git Version Control deployment for NeurON
+# Account user: neuronme -> document root: public_html
+#
+# After pushing to the cPanel-managed repo, this runs on the server.
+# Adjust paths if the repo is cloned outside ~/public_html.
+
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/neuronme/public_html
+    - /bin/cp -R * $DEPLOYPATH/
+    # Prefer the Passenger/Python app venv under public_html (or server/.venv)
+    - |
+      if [ -x "$DEPLOYPATH/venv/bin/pip" ]; then
+        "$DEPLOYPATH/venv/bin/pip" install -r "$DEPLOYPATH/requirements.txt"
+      elif [ -x "$DEPLOYPATH/server/.venv/bin/pip" ]; then
+        "$DEPLOYPATH/server/.venv/bin/pip" install -r "$DEPLOYPATH/requirements.txt"
+      fi
+    # Touch WSGI entry so Passenger reloads the app
+    - /bin/touch "$DEPLOYPATH/passenger_wsgi.py"

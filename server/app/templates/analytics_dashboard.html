@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+  <meta name="googlebot" content="noindex, nofollow" />
+  <title>NeurON · analytics</title>
+  <style>
+    :root {
+      --bg: #0f1214;
+      --panel: #171b1e;
+      --line: #2a3136;
+      --text: #e8ecee;
+      --muted: #8b969c;
+      --accent: #2E727C;
+      --ok: #6fbf8a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: 13px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      background: var(--bg);
+      color: var(--text);
+      padding: 20px;
+    }
+    h1 {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin: 0 0 4px;
+    }
+    .sub { color: var(--muted); margin-bottom: 20px; }
+    .err {
+      border: 1px solid #6b2a2a;
+      background: #241414;
+      color: #f0b4b4;
+      padding: 14px 16px;
+      border-radius: 6px;
+      max-width: 640px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 12px 14px;
+    }
+    .card .k { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .card .v { font-size: 22px; font-weight: 600; margin-top: 6px; color: var(--ok); }
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      text-align: left;
+      padding: 7px 8px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: middle;
+    }
+    th { color: var(--muted); font-weight: 500; font-size: 11px; text-transform: uppercase; }
+    .bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .bar {
+      height: 8px;
+      background: var(--accent);
+      border-radius: 2px;
+      min-width: 2px;
+    }
+    .controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    select, button {
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 6px 10px;
+      font: inherit;
+    }
+    button { cursor: pointer; }
+    button:hover { border-color: var(--accent); }
+    .muted { color: var(--muted); }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+      .row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <h1>NeurON analytics</h1>
+  <div class="sub" id="meta">loading…</div>
+  <div class="controls">
+    <label class="muted">period
+      <select id="days">
+        <option value="7">7d</option>
+        <option value="30" selected>30d</option>
+        <option value="90">90d</option>
+        <option value="365">365d</option>
+      </select>
+    </label>
+    <button type="button" id="reload">reload</button>
+  </div>
+  <div id="app"></div>
+  <script>
+    (function () {
+      const params = new URLSearchParams(location.search);
+      const token = params.get("t") || params.get("token") || "";
+      const daysEl = document.getElementById("days");
+      const app = document.getElementById("app");
+      const meta = document.getElementById("meta");
+
+      function maxOf(arr, key) {
+        return arr.reduce((m, x) => Math.max(m, Number(x[key] || 0)), 0) || 1;
+      }
+
+      function tableFromMap(map, labelA, labelB) {
+        const entries = Object.entries(map || {}).sort((a, b) => b[1] - a[1]);
+        const max = Math.max(1, ...entries.map((e) => e[1]));
+        if (!entries.length) return "<p class='muted'>no data</p>";
+        return (
+          "<table><thead><tr><th>" +
+          labelA +
+          "</th><th>" +
+          labelB +
+          "</th><th></th></tr></thead><tbody>" +
+          entries
+            .map(function (e) {
+              const w = Math.round((e[1] / max) * 100);
+              return (
+                "<tr><td>" +
+                e[0] +
+                "</td><td>" +
+                e[1] +
+                "</td><td><div class='bar-wrap'><div class='bar' style='width:" +
+                w +
+                "%'></div></div></td></tr>"
+              );
+            })
+            .join("") +
+          "</tbody></table>"
+        );
+      }
+
+      function render(data) {
+        const t = data.totals || {};
+        meta.textContent =
+          "generated " +
+          (data.generated_at || "") +
+          " · period " +
+          data.period_days +
+          "d · token auth ok";
+
+        const byDay = data.by_day || [];
+        const dayMax = maxOf(byDay, "views");
+        const byHour = data.by_hour || [];
+        const hourMax = maxOf(byHour, "views");
+        const paths = data.top_paths || [];
+        const pathMax = maxOf(paths, "views");
+
+        app.innerHTML =
+          '<div class="grid">' +
+          '<div class="card"><div class="k">pageviews (period)</div><div class="v">' +
+          (t.pageviews_period || 0) +
+          "</div></div>" +
+          '<div class="card"><div class="k">unique (period)</div><div class="v">' +
+          (t.unique_visitors_period || 0) +
+          "</div></div>" +
+          '<div class="card"><div class="k">pageviews (all)</div><div class="v">' +
+          (t.pageviews_all || 0) +
+          "</div></div>" +
+          '<div class="card"><div class="k">unique (all)</div><div class="v">' +
+          (t.unique_visitors_all || 0) +
+          "</div></div>" +
+          "</div>" +
+          '<div class="row">' +
+          '<div class="card"><div class="k">by language</div>' +
+          tableFromMap(data.by_lang, "lang", "views") +
+          "</div>" +
+          '<div class="card"><div class="k">by source</div>' +
+          tableFromMap(data.by_source, "source", "views") +
+          "</div>" +
+          "</div>" +
+          '<div class="row">' +
+          '<div class="card"><div class="k">by day</div><table><thead><tr><th>date</th><th>views</th><th></th></tr></thead><tbody>' +
+          byDay
+            .map(function (d) {
+              const w = Math.round((d.views / dayMax) * 100);
+              return (
+                "<tr><td>" +
+                d.date +
+                "</td><td>" +
+                d.views +
+                "</td><td><div class='bar-wrap'><div class='bar' style='width:" +
+                w +
+                "%'></div></div></td></tr>"
+              );
+            })
+            .join("") +
+          "</tbody></table></div>" +
+          '<div class="card"><div class="k">by hour (UTC)</div><table><thead><tr><th>hour</th><th>views</th><th></th></tr></thead><tbody>' +
+          byHour
+            .map(function (d) {
+              const w = Math.round((d.views / hourMax) * 100);
+              return (
+                "<tr><td>" +
+                d.hour +
+                "</td><td>" +
+                d.views +
+                "</td><td><div class='bar-wrap'><div class='bar' style='width:" +
+                w +
+                "%'></div></div></td></tr>"
+              );
+            })
+            .join("") +
+          "</tbody></table></div>" +
+          "</div>" +
+          '<div class="card"><div class="k">top paths</div><table><thead><tr><th>path</th><th>views</th><th></th></tr></thead><tbody>' +
+          paths
+            .map(function (d) {
+              const w = Math.round((d.views / pathMax) * 100);
+              return (
+                "<tr><td>" +
+                d.path +
+                "</td><td>" +
+                d.views +
+                "</td><td><div class='bar-wrap'><div class='bar' style='width:" +
+                w +
+                "%'></div></div></td></tr>"
+              );
+            })
+            .join("") +
+          "</tbody></table></div>";
+      }
+
+      async function load() {
+        if (!token) {
+          app.innerHTML =
+            "<div class='err'>Missing token. Open with ?t=YOUR_ANALYTICS_SECRET_TOKEN</div>";
+          meta.textContent = "unauthorized";
+          return;
+        }
+        app.innerHTML = "<p class='muted'>fetching…</p>";
+        try {
+          const days = daysEl.value || "30";
+          const res = await fetch(
+            "/api/v1/analytics/stats?days=" +
+              encodeURIComponent(days) +
+              "&t=" +
+              encodeURIComponent(token),
+            { cache: "no-store" }
+          );
+          if (!res.ok) {
+            const txt = await res.text();
+            throw new Error(res.status + " " + txt);
+          }
+          render(await res.json());
+        } catch (e) {
+          app.innerHTML =
+            "<div class='err'>Failed to load stats: " +
+            String(e.message || e) +
+            "</div>";
+          meta.textContent = "error";
+        }
+      }
+
+      daysEl.addEventListener("change", load);
+      document.getElementById("reload").addEventListener("click", load);
+      load();
+    })();
+  </script>
+</body>
+</html>

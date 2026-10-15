@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeurON — Brand Guidelines · 01</title>
+  <meta name="description" content="Руководство по фирменному стилю NeurON medical centre. Логотип, цвет и типографика." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --paradiso: #2E727C;
+      --paradiso-soft: rgba(46, 114, 124, 0.08);
+      --paradiso-mid: rgba(46, 114, 124, 0.16);
+      --dimgray: #696969;
+      --dark: #1E1E1E;
+      --white: #FFFFFF;
+      --bg: #F5F7F8;
+      --bg-elevated: #FFFFFF;
+      --text: #2A2F33;
+      --muted: #7A8288;
+      --border: rgba(46, 114, 124, 0.1);
+      --radius: 24px;
+      --radius-sm: 16px;
+      --shadow-soft:
+        8px 8px 24px rgba(46, 114, 124, 0.07),
+        -6px -6px 18px rgba(255, 255, 255, 0.9),
+        0 1px 2px rgba(18, 30, 34, 0.03);
+      --shadow-lift:
+        12px 16px 40px rgba(46, 114, 124, 0.12),
+        -4px -4px 16px rgba(255, 255, 255, 0.85);
+      --font: Inter, Roboto, ui-sans-serif, system-ui, sans-serif;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      color: var(--text);
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(46, 114, 124, 0.07), transparent 55%),
+        radial-gradient(ellipse 40% 30% at 100% 40%, rgba(46, 114, 124, 0.04), transparent 50%),
+        var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    .container {
+      width: min(100% - 40px, var(--max));
+      margin-inline: auto;
+    }
+
+    /* ========== Header ========== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px) saturate(1.2);
+      -webkit-backdrop-filter: blur(16px) saturate(1.2);
+      background: rgba(245, 247, 248, 0.82);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      flex-shrink: 0;
+      display: block;
+      width: 34px;
+      height: 34px;
+      line-height: 0;
+    }
+
+    .brand-mark img,
+    .small-logo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      user-select: none;
+      -webkit-user-drag: none;
+      background: transparent;
+      border-radius: 50%;
+      filter: none;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 1.15;
+      min-width: 0;
+      gap: 2px;
+    }
+
+    .brand-name {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-name .neur { color: var(--dimgray); }
+    .brand-name .on { color: var(--paradiso); }
+
+    .brand-sub {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav a {
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--dimgray);
+      transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--paradiso);
+      background: var(--white);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+      background: var(--paradiso);
+      box-shadow:
+        0 8px 24px rgba(46, 114, 124, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-print:hover {
+      background: #256670;
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(46, 114, 124, 0.34);
+    }
+
+    .btn-print:active { transform: translateY(0); }
+
+    .btn-print svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+    /* ========== Hero ========== */
+    .hero {
+      padding: 56px 0 28px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--paradiso);
+      background: var(--white);
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 20px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--paradiso);
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      color: var(--dark);
+      max-width: 14ch;
+    }
+
+    .hero h1 span { color: var(--paradiso); }
+
+    .hero-lead {
+      margin-top: 16px;
+      max-width: 46ch;
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ========== Sections ========== */
+    section {
+      padding: 48px 0 64px;
+      scroll-margin-top: 88px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .section-index {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--paradiso);
+      margin-bottom: 8px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--dark);
+    }
+
+    .section-head p {
+      max-width: 42ch;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ========== Logo cards ========== */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .logo-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .logo-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lift);
+    }
+
+    .logo-preview {
+      aspect-ratio: 16 / 11;
+      display: grid;
+      place-items: center;
+      padding: clamp(28px, 4vw, 40px) clamp(20px, 3vw, 32px);
+      position: relative;
+    }
+
+    .logo-preview--light {
+      background:
+        radial-gradient(circle at 30% 20%, rgba(46, 114, 124, 0.04), transparent 50%),
+        #FFFFFF;
+    }
+
+    .logo-preview--dark {
+      background:
+        radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.05), transparent 45%),
+        #1E1E1E;
+    }
+
+    .logo-preview--accent {
+      background:
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1), transparent 40%),
+        var(--paradiso);
+    }
+
+    .logo-img {
+      display: block;
+      width: min(100%, 300px);
+      height: auto;
+      max-height: 140px;
+      object-fit: contain;
+      object-position: center;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    /* Monochrome white mark for dark & Paradiso surfaces */
+    .logo-img--inverse {
+      filter: brightness(0) invert(1);
+    }
+
+    .logo-meta {
+      padding: 22px 22px 24px;
+      border-top: 1px solid var(--border);
+      background: var(--white);
+    }
+
+    .logo-card--dark .logo-meta,
+    .logo-card--accent .logo-meta {
+      border-top-color: rgba(0, 0, 0, 0.06);
+    }
+
+    .logo-meta h3 {
+      font-size: 16px;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .logo-meta p {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .logo-meta .hex {
+      color: var(--paradiso);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ========== Color ========== */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .swatch {
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+    }
+
+    .swatch:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lift);
+    }
+
+    .swatch-chip {
+      height: 120px;
+      position: relative;
+    }
+
+    .swatch-chip--white {
+      background:
+        linear-gradient(45deg, #eee 25%, transparent 25%),
+        linear-gradient(-45deg, #eee 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #eee 75%),
+        linear-gradient(-45deg, transparent 75%, #eee 75%);
+      background-size: 16px 16px;
+      background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+      background-color: #fff;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .swatch-chip--white::after {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+    }
+
+    .swatch-body {
+      padding: 18px 18px 20px;
+    }
+
+    .swatch-name {
+      font-size: 15px;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      color: var(--dark);
+    }
+
+    .swatch-role {
+      margin-top: 4px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .swatch-hex {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.02em;
+      color: var(--paradiso);
+      background: var(--paradiso-soft);
+    }
+
+    .swatch-hint {
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--muted);
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .swatch:hover .swatch-hint,
+    .swatch:focus-visible .swatch-hint {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========== Typography ========== */
+    .type-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 22px;
+    }
+
+    .type-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .type-card h3 {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--paradiso);
+      margin-bottom: 18px;
+    }
+
+    .type-specimen {
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 300;
+      letter-spacing: -0.05em;
+      line-height: 1;
+      color: var(--dark);
+    }
+
+    .type-specimen strong {
+      display: block;
+      margin-top: 8px;
+      font-weight: 700;
+      font-size: 0.72em;
+    }
+
+    .type-meta {
+      margin-top: 20px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .type-scale {
+      display: grid;
+      gap: 0;
+    }
+
+    .type-row {
+      display: grid;
+      grid-template-columns: 72px 1fr auto;
+      gap: 16px;
+      align-items: baseline;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .type-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .type-row:first-child { padding-top: 0; }
+
+    .type-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--paradiso);
+    }
+
+    .type-sample { color: var(--dark); letter-spacing: -0.02em; }
+    .type-h1 { font-size: 28px; font-weight: 700; }
+    .type-h2 { font-size: 22px; font-weight: 600; }
+    .type-body { font-size: 15px; font-weight: 400; color: var(--dimgray); }
+    .type-caption { font-size: 12px; font-weight: 500; color: var(--muted); }
+
+    .type-size {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ========== Footer ========== */
+    .footer {
+      padding: 28px 0 48px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer-brand strong {
+      color: var(--dimgray);
+      font-weight: 600;
+    }
+
+    .footer-brand .on { color: var(--paradiso); }
+
+    /* ========== Toast ========== */
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 28px;
+      transform: translateX(-50%) translateY(120%);
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: var(--paradiso);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: 0 12px 32px rgba(46, 114, 124, 0.35);
+      z-index: 100;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+    }
+
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* ========== Responsive ========== */
+    @media (max-width: 960px) {
+      .logo-grid,
+      .color-grid { grid-template-columns: repeat(2, 1fr); }
+      .type-grid { grid-template-columns: 1fr; }
+      .nav { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 28px, var(--max)); }
+      .logo-grid,
+      .color-grid { grid-template-columns: 1fr; }
+      .btn-print span.label { display: none; }
+      .hero { padding-top: 36px; }
+      .type-row { grid-template-columns: 56px 1fr; }
+      .type-size { display: none; }
+      .brand-sub { display: none; }
+    }
+
+    @media print {
+      .header, .btn-print, .toast, .eyebrow { display: none !important; }
+      body { background: #fff; }
+      .logo-card, .swatch, .type-card { box-shadow: none; border: 1px solid #e5e5e5; break-inside: avoid; }
+      section { padding: 24px 0; }
+    }
+  </style>
+</head>
+<body>
+  <div id="toast" class="toast" role="status" aria-live="polite">HEX скопирован</div>
+
+  <!-- ========== Header ========== -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="NeurON — наверх">
+        <span class="brand-mark" aria-hidden="true">
+          <img
+            class="small-logo"
+            src="NeurON-icon-circle.png"
+            alt="NeurON Medical Centre"
+            width="40"
+            height="40"
+            style="width:40px;height:40px;object-fit:contain;background:transparent;border-radius:50%"
+            decoding="async"
+          />
+        </span>
+        <span class="brand-text">
+          <span class="brand-name"><span class="neur">Neur</span><span class="on">ON</span></span>
+          <span class="brand-sub">Brand Guidelines · 01</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Разделы">
+        <a href="#logo">01. Логотип</a>
+        <a href="#color">02. Цвет</a>
+        <a href="#typography">03. Типографика</a>
+      </nav>
+
+      <button type="button" class="btn-print" onclick="window.print()" aria-label="Скачать или распечатать гайдбук">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6v-8z"/>
+        </svg>
+        <span class="label">Скачать / Печать</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <div class="hero">
+      <div class="container">
+        <div class="eyebrow">Part 01 · Identity System</div>
+        <h1>Neur<span>ON</span> Brand Guidelines</h1>
+        <p class="hero-lead">
+          Премиальный фирменный стиль медицинского центра: логотип, палитра и типографика —
+          чисто, спокойно, узнаваемо.
+        </p>
+      </div>
+    </div>
+
+    <!-- ========== 01 Logo ========== -->
+    <section id="logo">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-index">01 · Логотип</div>
+            <h2>Логотип и версии использования</h2>
+          </div>
+          <p>Три рабочих варианта знака: основной, инверсный и акцентный. Соблюдайте цвета и пропорции без искажений.</p>
+        </div>
+
+        <div class="logo-grid">
+          <!-- Card 1: Primary -->
+          <article class="logo-card">
+            <div class="logo-preview logo-preview--light">
+              <img
+                class="logo-img"
+                src="NeurON.png"
+                alt="NeurON medical centre — основной логотип"
+                width="1672"
+                height="941"
+                decoding="async"
+              />
+            </div>
+            <div class="logo-meta">
+              <h3>Основной логотип</h3>
+              <p>
+                Основной. Знак и слово ON — Paradiso (<span class="hex">#2E727C</span>).
+                Слово Neur и подпись — Dimgray (<span class="hex">#696969</span>).
+                Для светлых поверхностей.
+              </p>
+            </div>
+          </article>
+
+          <!-- Card 2: Inverse -->
+          <article class="logo-card logo-card--dark">
+            <div class="logo-preview logo-preview--dark">
+              <img
+                class="logo-img logo-img--inverse"
+                src="NeurON.png"
+                alt="NeurON medical centre — инверсный логотип"
+                width="1672"
+                height="941"
+                decoding="async"
+              />
+            </div>
+            <div class="logo-meta">
+              <h3>Инверсный логотип</h3>
+              <p>
+                Инверсный. Полностью белый монохромный упрощённый логотип
+                для тёмных поверхностей и вывесок.
+              </p>
+            </div>
+          </article>
+
+          <!-- Card 3: Accent -->
+          <article class="logo-card logo-card--accent">
+            <div class="logo-preview logo-preview--accent">
+              <img
+                class="logo-img logo-img--inverse"
+                src="NeurON.png"
+                alt="NeurON medical centre — акцентный логотип"
+                width="1672"
+                height="941"
+                decoding="async"
+              />
+            </div>
+            <div class="logo-meta">
+              <h3>Акцентный фон</h3>
+              <p>
+                Акцентный фон. Монохромный белый логотип на фирменном фоне Paradiso —
+                для брендированных носителей.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 02 Color ========== -->
+    <section id="color">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-index">02 · Цвет</div>
+            <h2>Фирменная палитра</h2>
+          </div>
+          <p>Четыре базовых цвета. Нажмите на плашку, чтобы скопировать HEX-код.</p>
+        </div>
+
+        <div class="color-grid">
+          <button type="button" class="swatch" data-hex="#2E727C" aria-label="Скопировать Paradiso #2E727C">
+            <div class="swatch-chip" style="background:#2E727C"></div>
+            <div class="swatch-body">
+              <div class="swatch-name">Paradiso</div>
+              <div class="swatch-role">Основной акцентный</div>
+              <div class="swatch-hex">#2E727C</div>
+              <div class="swatch-hint">Клик — копировать</div>
+            </div>
+          </button>
+
+          <button type="button" class="swatch" data-hex="#696969" aria-label="Скопировать Dimgray #696969">
+            <div class="swatch-chip" style="background:#696969"></div>
+            <div class="swatch-body">
+              <div class="swatch-name">Dimgray</div>
+              <div class="swatch-role">Текст / Второстепенный</div>
+              <div class="swatch-hex">#696969</div>
+              <div class="swatch-hint">Клик — копировать</div>
+            </div>
+          </button>
+
+          <button type="button" class="swatch" data-hex="#1E1E1E" aria-label="Скопировать Dark Dark #1E1E1E">
+            <div class="swatch-chip" style="background:#1E1E1E"></div>
+            <div class="swatch-body">
+              <div class="swatch-name">Dark Dark</div>
+              <div class="swatch-role">Тёмный фон / Инверс</div>
+              <div class="swatch-hex">#1E1E1E</div>
+              <div class="swatch-hint">Клик — копировать</div>
+            </div>
+          </button>
+
+          <button type="button" class="swatch" data-hex="#FFFFFF" aria-label="Скопировать Pure White #FFFFFF">
+            <div class="swatch-chip swatch-chip--white"></div>
+            <div class="swatch-body">
+              <div class="swatch-name">Pure White</div>
+              <div class="swatch-role">Чистый фон</div>
+              <div class="swatch-hex">#FFFFFF</div>
+              <div class="swatch-hint">Клик — копировать</div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 03 Typography ========== -->
+    <section id="typography">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-index">03 · Типографика</div>
+            <h2>Шрифтовая система</h2>
+          </div>
+          <p>Inter — основной гротеск бренда. Читаемость, нейтральность и спокойная медицинская эстетика.</p>
+        </div>
+
+        <div class="type-grid">
+          <article class="type-card">
+            <h3>Primary · Inter</h3>
+            <div class="type-specimen">
+              Aa
+              <strong>NeurON</strong>
+            </div>
+            <p class="type-meta">
+              Inter (с запасным Roboto) используется для заголовков, интерфейса и основного текста.
+              Начертания: Light 300, Regular 400, Medium 500, Semibold 600, Bold 700.
+            </p>
+          </article>
+
+          <article class="type-card">
+            <h3>Type scale</h3>
+            <div class="type-scale">
+              <div class="type-row">
+                <span class="type-label">H1</span>
+                <span class="type-sample type-h1">Заголовок</span>
+                <span class="type-size">32 / 700</span>
+              </div>
+              <div class="type-row">
+                <span class="type-label">H2</span>
+                <span class="type-sample type-h2">Подзаголовок</span>
+                <span class="type-size">22 / 600</span>
+              </div>
+              <div class="type-row">
+                <span class="type-label">Body</span>
+                <span class="type-sample type-body">Основной текст гайдбука и UI</span>
+                <span class="type-size">15 / 400</span>
+              </div>
+              <div class="type-row">
+                <span class="type-label">Caption</span>
+                <span class="type-sample type-caption">Подписи, метки, метаданные</span>
+                <span class="type-size">12 / 500</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <strong>Neur<span class="on">ON</span></strong>
+        medical centre · Brand Guidelines · Part 01
+      </div>
+      <button type="button" class="btn-print" onclick="window.print()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6v-8z"/>
+        </svg>
+        <span class="label">Скачать / Печать</span>
+      </button>
+    </div>
+  </footer>
+
+  <script>
+    const toast = document.getElementById('toast');
+    let toastTimer;
+
+    async function copyHex(hex) {
+      try {
+        await navigator.clipboard.writeText(hex);
+      } catch {
+        const ta = document.createElement('textarea');
+        ta.value = hex;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      toast.textContent = hex + ' скопирован';
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 1600);
+    }
+
+    document.querySelectorAll('.swatch[data-hex]').forEach((el) => {
+      el.addEventListener('click', () => copyHex(el.getAttribute('data-hex')));
+    });
+
+    const links = document.querySelectorAll('.nav a');
+    const sections = ['logo', 'color', 'typography'].map((id) => document.getElementById(id));
+
+    function updateNav() {
+      const y = window.scrollY + 120;
+      let current = null;
+      sections.forEach((s) => { if (s && s.offsetTop <= y) current = s.id; });
+      links.forEach((a) => a.classList.toggle('active', current && a.getAttribute('href') === '#' + current));
+    }
+
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+  </script>
+</body>
+</html>
