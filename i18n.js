@@ -912,7 +912,8 @@
   }
 
   function t(lang, key) {
-    return (DICT[lang] && DICT[lang][key]) || (DICT.ru && DICT.ru[key]) || null;
+    /* Site default is Uzbek: missing keys fall back to UZ, then RU. */
+    return (DICT[lang] && DICT[lang][key]) || (DICT.uz && DICT.uz[key]) || (DICT.ru && DICT.ru[key]) || null;
   }
 
   function getLang() {
@@ -1087,7 +1088,7 @@
 
     document.querySelectorAll("[data-lang-set]").forEach((btn) => {
       btn.addEventListener("click", () => {
-        setLang(btn.getAttribute("data-lang-set") || "ru");
+        setLang(btn.getAttribute("data-lang-set") || "uz");
       });
     });
 
