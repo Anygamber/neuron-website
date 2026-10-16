@@ -984,6 +984,9 @@
 
   function localizePriceValue(price) {
     const s = String(price == null ? "" : price);
+    if (getLang() === "en" && window.NeuronFx && window.NeuronFx.formatUzsText) {
+      return window.NeuronFx.formatUzsText(s);
+    }
     if (getLang() === "en") return s.replace(/сум/gi, "UZS");
     if (getLang() !== "uz") return s;
     return s.replace(/сум/gi, "so‘m");
