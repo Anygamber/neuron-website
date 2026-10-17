@@ -5,6 +5,8 @@
   var CACHE_KEY = "neuron_usd_uzs_v1";
   var CACHE_TTL = 6 * 60 * 60 * 1000;
   var FALLBACK_RATE = 12800;
+  /* English USD prices are the local tariff plus 20% for international patients. */
+  var FOREIGN_MARKUP = 1.2;
   var AMOUNT_RE = /\d{1,3}(?:[ \u00A0]\d{3})+|\d{5,}/g;
 
   var memoryRate = null;
@@ -90,7 +92,7 @@
   }
 
   function formatUsd(uzs) {
-    var usd = roundUsd(Number(uzs) / currentRate());
+    var usd = roundUsd((Number(uzs) / currentRate()) * FOREIGN_MARKUP);
     return "$" + usd.toLocaleString("en-US");
   }
 
@@ -157,7 +159,7 @@
     if (note) {
       var rate = currentRate();
       var shown = (Math.round(rate * 100) / 100).toLocaleString("en-US");
-      note.textContent = "Prices in USD · 1 USD = " + shown + " UZS (Central Bank of Uzbekistan)";
+      note.textContent = "USD prices for international patients include a 20% surcharge · 1 USD = " + shown + " UZS (Central Bank of Uzbekistan)";
     }
   }
 
@@ -188,6 +190,7 @@
   window.NeuronFx = {
     CBU_URL: CBU_URL,
     FALLBACK_RATE: FALLBACK_RATE,
+    FOREIGN_MARKUP: FOREIGN_MARKUP,
     getRate: currentRate,
     fetchUsdUzsRate: fetchUsdUzsRate,
     formatUsd: formatUsd,
