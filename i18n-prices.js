@@ -27,10 +27,10 @@ window.NEURON_PRICE_I18N = {
     "Нейрохирургия": "Neyroxirurgiya"
   },
   items: {
-    "Глюкоза венозная": "Vena qoni glyukozasi",
-    "Йод в сыворотке (I)": "Zardobda yod (I)",
+    "Глюкоза венозная": "Venoz glyukoza",
+    "Йод в сыворотке (I)": "Zardobdagi yod",
     "Глюкоза капиллярная": "Kapillyar qon glyukozasi",
-    "Мочевина": "Mochevina",
+    "Мочевина": "Siydikchil",
     "Мочевая кислота": "Siydik kislotasi",
     "Холестерин": "Xolesterin",
     "ЛПВП — холестерин высокой плотности": "Yuqori zichlikli xolesterin (HDL)",

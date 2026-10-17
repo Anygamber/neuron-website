@@ -1010,9 +1010,15 @@
   }
 
   function localizeItemName(name) {
-    if (getLang() === "en" || getLang() !== "uz") return name;
-    const map = priceMap();
-    return (map.items && map.items[name]) || name;
+    const lang = getLang();
+    const items = (window.NEURON_PRICES && window.NEURON_PRICES.items) || [];
+    const item = items.find((it) => it && (it.name === name || it.name_ru === name));
+    if (item) return item["name_" + lang] || item.name_ru || name;
+    if (lang === "uz") {
+      const map = priceMap();
+      return (map.items && map.items[name]) || name;
+    }
+    return name;
   }
 
   function localizePriceValue(price) {
