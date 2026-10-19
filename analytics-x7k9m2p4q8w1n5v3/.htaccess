@@ -1,0 +1,3 @@
+# Serve this directory as files. Do not hand it to the Passenger app.
+PassengerEnabled off
+DirectoryIndex index.php
