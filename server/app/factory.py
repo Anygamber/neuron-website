@@ -179,10 +179,10 @@ def analytics_dashboard(
         return HTMLResponse(
             "<!DOCTYPE html><html><head>"
             '<meta name="robots" content="noindex,nofollow"/>'
-            "<title>401</title></head><body>"
-            "<pre>401 Unauthorized — provide ?t=ANALYTICS_SECRET_TOKEN</pre>"
+            "<title>404</title></head><body>"
+            "<p>404 Not Found</p>"
             "</body></html>",
-            status_code=401,
+            status_code=404,
             headers={"X-Robots-Tag": "noindex, nofollow"},
         )
     if not _ANALYTICS_TEMPLATE.is_file():

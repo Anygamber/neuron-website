@@ -90,7 +90,7 @@ def record_visit(
 ) -> PageVisit:
     clean_path = (path or "/")[:500]
     clean_lang = (lang or "uz").lower()[:8]
-    if clean_lang not in {"ru", "uz"}:
+    if clean_lang not in {"ru", "uz", "en"}:
         clean_lang = "uz"
     clean_ref = (referrer or "")[:1000]
     clean_vid = (visitor_id or "")[:64] or "anonymous"
@@ -119,49 +119,65 @@ def get_stats(db: Session, *, days: int = 30) -> dict:
     days = max(1, min(int(days or 30), 365))
     since = datetime.now(timezone.utc) - timedelta(days=days)
 
-    total = db.query(func.count(PageVisit.id)).scalar() or 0
+    geo_prefix = "/geo-click/"
+    is_geo = PageVisit.path.like(geo_prefix + "%")
+    is_page = ~is_geo
+
+    total = db.query(func.count(PageVisit.id)).filter(is_page).scalar() or 0
     period_total = (
-        db.query(func.count(PageVisit.id)).filter(PageVisit.created_at >= since).scalar() or 0
+        db.query(func.count(PageVisit.id))
+        .filter(is_page, PageVisit.created_at >= since)
+        .scalar()
+        or 0
     )
-    unique_all = db.query(func.count(func.distinct(PageVisit.visitor_id))).scalar() or 0
+    unique_all = (
+        db.query(func.count(func.distinct(PageVisit.visitor_id))).filter(is_page).scalar() or 0
+    )
     unique_period = (
         db.query(func.count(func.distinct(PageVisit.visitor_id)))
-        .filter(PageVisit.created_at >= since)
+        .filter(is_page, PageVisit.created_at >= since)
         .scalar()
         or 0
     )
 
     by_lang = _bucket_counts(
         db.query(PageVisit.lang, func.count(PageVisit.id))
-        .filter(PageVisit.created_at >= since)
+        .filter(is_page, PageVisit.created_at >= since)
         .group_by(PageVisit.lang)
         .all()
     )
     by_source = _bucket_counts(
         db.query(PageVisit.source, func.count(PageVisit.id))
-        .filter(PageVisit.created_at >= since)
+        .filter(is_page, PageVisit.created_at >= since)
         .group_by(PageVisit.source)
+        .all()
+    )
+    geo_rows = (
+        db.query(PageVisit.path, func.count(PageVisit.id))
+        .filter(is_geo, PageVisit.created_at >= since)
+        .group_by(PageVisit.path)
+        .order_by(func.count(PageVisit.id).desc())
         .all()
     )
 
     # SQLite: date(created_at) / strftime hour
     by_day_rows = (
         db.query(func.strftime("%Y-%m-%d", PageVisit.created_at), func.count(PageVisit.id))
-        .filter(PageVisit.created_at >= since)
+        .filter(is_page, PageVisit.created_at >= since)
         .group_by(func.strftime("%Y-%m-%d", PageVisit.created_at))
         .order_by(func.strftime("%Y-%m-%d", PageVisit.created_at))
         .all()
     )
     by_hour_rows = (
         db.query(func.strftime("%H", PageVisit.created_at), func.count(PageVisit.id))
-        .filter(PageVisit.created_at >= since)
+        .filter(is_page, PageVisit.created_at >= since)
         .group_by(func.strftime("%H", PageVisit.created_at))
         .order_by(func.strftime("%H", PageVisit.created_at))
         .all()
     )
     top_paths = (
         db.query(PageVisit.path, func.count(PageVisit.id))
-        .filter(PageVisit.created_at >= since)
+        .filter(is_page, PageVisit.created_at >= since)
         .group_by(PageVisit.path)
         .order_by(func.count(PageVisit.id).desc())
         .limit(15)
@@ -184,6 +200,10 @@ def get_stats(db: Session, *, days: int = 30) -> dict:
         },
         "by_lang": by_lang,
         "by_source": by_source,
+        "geo_clicks": [
+            {"map": str(path)[len(geo_prefix) :] or "map", "views": int(count)}
+            for path, count in geo_rows
+        ],
         "by_day": [{"date": str(d), "views": int(c)} for d, c in by_day_rows if d],
         "by_hour": [{"hour": h, "views": hours[h]} for h in sorted(hours.keys())],
         "top_paths": [{"path": str(p), "views": int(c)} for p, c in top_paths],

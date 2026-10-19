@@ -56,7 +56,7 @@
     .card .v { font-size: 22px; font-weight: 600; margin-top: 6px; color: var(--ok); }
     .row {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 10px;
       margin-bottom: 10px;
     }
@@ -198,6 +198,16 @@
           "</div>" +
           '<div class="card"><div class="k">by source</div>' +
           tableFromMap(data.by_source, "source", "views") +
+          "</div>" +
+          '<div class="card"><div class="k">geo clicks</div>' +
+          tableFromMap(
+            (data.geo_clicks || []).reduce(function (map, row) {
+              map[row.map] = row.views;
+              return map;
+            }, {}),
+            "map",
+            "clicks"
+          ) +
           "</div>" +
           "</div>" +
           '<div class="row">' +

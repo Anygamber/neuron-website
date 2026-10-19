@@ -25,6 +25,7 @@
       document.documentElement.setAttribute("data-lang", lang);
     })();
   </script>
+  <script src="neuron-analytics.js?v=20261019" defer></script>
   <link rel="canonical" href="https://neuronmedical.uz/?lang=uz" />
   <link rel="alternate" hreflang="uz" href="https://neuronmedical.uz/?lang=uz" />
   <link rel="alternate" hreflang="ru" href="https://neuronmedical.uz/?lang=ru" />
@@ -7032,43 +7033,6 @@ window.NEURON_PRICES = {"updated":"09.09.2026","currency":"сум","categories":
     }
   });
 })();
-
-  /* Lightweight first-party visit beacon (NeurON analytics) */
-  (function () {
-    try {
-      var KEY = "neuron_vid";
-      var vid = localStorage.getItem(KEY);
-      if (!vid) {
-        vid =
-          typeof crypto !== "undefined" && crypto.randomUUID
-            ? crypto.randomUUID()
-            : "v" + Date.now().toString(36) + Math.random().toString(36).slice(2);
-        localStorage.setItem(KEY, vid);
-      }
-      var lang =
-        document.documentElement.getAttribute("data-lang") ||
-        (window.NeuronI18n && NeuronI18n.getLang && NeuronI18n.getLang()) ||
-        "uz";
-      var payload = JSON.stringify({
-        path: location.pathname + location.search + location.hash,
-        lang: String(lang).toLowerCase(),
-        referrer: document.referrer || "",
-        visitor_id: vid,
-        href: location.href,
-      });
-      var url = "/api/v1/analytics/hit";
-      if (navigator.sendBeacon) {
-        navigator.sendBeacon(url, new Blob([payload], { type: "application/json" }));
-      } else {
-        fetch(url, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: payload,
-          keepalive: true,
-        }).catch(function () {});
-      }
-    } catch (_) {}
-  })();
 
   </script>
 
