@@ -170,6 +170,19 @@ def analytics_stats(
     return analytics_svc.get_stats(db, days=days)
 
 
+@api_router.get(ANALYTICS_DASHBOARD_PATH + "/api.php")
+def analytics_dashboard_api(
+    days: int = Query(default=30, ge=1, le=365),
+    t: str | None = Query(default=None),
+    token: str | None = Query(default=None),
+    authorization: str | None = Header(default=None),
+    db: Session = Depends(get_db),
+):
+    """Same stats JSON as analytics-x7k9m2p4q8w1n5v3/api.php when Passenger handles the file."""
+    _require_analytics_token(t=t, token=token, authorization=authorization)
+    return analytics_svc.get_stats(db, days=days)
+
+
 @api_router.get(ANALYTICS_DASHBOARD_PATH, response_class=HTMLResponse)
 @api_router.get(ANALYTICS_DASHBOARD_PATH + "/", response_class=HTMLResponse)
 def analytics_dashboard(

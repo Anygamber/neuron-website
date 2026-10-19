@@ -272,8 +272,10 @@
         app.innerHTML = "<p class='muted'>fetching…</p>";
         try {
           const days = daysEl.value || "30";
+          var dir = location.pathname.replace(/index\.php$/, "");
+          if (dir.slice(-1) !== "/") dir += "/";
           const res = await fetch(
-            "/api/v1/analytics/stats?days=" +
+            dir + "api.php?days=" +
               encodeURIComponent(days) +
               "&t=" +
               encodeURIComponent(token),
