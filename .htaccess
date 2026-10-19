@@ -1,10 +1,9 @@
-# Merge these rules into the existing server .htaccess if cPanel already
-# keeps a Passenger block there. Do not delete that block.
 RewriteEngine On
 
-# Leave real files and directories alone, including /analytics-x7k9m2p4q8w1n5v3/.
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
+# Before any redirect onto the main site.
+RewriteRule ^analytics-x7k9m2p4q8w1n5v3/?$ - [L]
 
-RewriteRule ^analytics-x7k9m2p4q8w1n5v3(/|$) - [L]
+# Real files and directories are not rewritten to the homepage.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ - [L]
