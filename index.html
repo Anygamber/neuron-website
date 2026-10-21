@@ -538,6 +538,10 @@
       display: flex;
       align-items: center;
       flex: 0 0 auto;
+      cursor: pointer;
+      border: 0;
+      background: none;
+      padding: 0;
       transition: transform var(--duration) var(--ease-out);
     }
 
@@ -1034,6 +1038,129 @@
       border-color: var(--paradiso-line);
       color: var(--paradiso);
       transform: translateX(4px);
+    }
+
+    .side-drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 220;
+      pointer-events: none;
+    }
+
+    .side-drawer.is-open { pointer-events: auto; }
+
+    .side-drawer__overlay {
+      position: absolute;
+      inset: 0;
+      border: 0;
+      padding: 0;
+      background: rgba(12, 28, 32, 0.46);
+      opacity: 0;
+      cursor: pointer;
+      transition: opacity 0.35s var(--ease);
+    }
+
+    .side-drawer.is-open .side-drawer__overlay { opacity: 1; }
+
+    .side-drawer__panel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: min(360px, 88vw);
+      display: flex;
+      flex-direction: column;
+      padding: 22px 18px 28px;
+      background: linear-gradient(180deg, #1a454c 0%, #0e2c31 100%);
+      color: #f3f7f7;
+      box-shadow: 16px 0 48px rgba(8, 24, 28, 0.32);
+      transform: translateX(-105%);
+      transition: transform 0.4s var(--ease);
+    }
+
+    .side-drawer.is-open .side-drawer__panel { transform: translateX(0); }
+
+    .side-drawer__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .side-drawer__head h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #d5e8ea;
+    }
+
+    .side-drawer__close {
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #f3f7f7;
+      font-size: 18px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .side-drawer__close:hover {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .side-drawer__nav {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .side-drawer__nav a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 14px;
+      border-radius: 12px;
+      color: #f3f7f7;
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s var(--ease-out);
+    }
+
+    .side-drawer__nav a i {
+      flex: 0 0 auto;
+      font-size: 18px;
+      line-height: 1;
+      color: #b7d4d8;
+      transition: color 0.25s ease, transform 0.25s var(--ease-out);
+    }
+
+    .side-drawer__nav a:hover,
+    .side-drawer__nav a.active {
+      background: rgba(126, 184, 192, 0.16);
+      color: #ffffff;
+      transform: translateX(4px);
+    }
+
+    .side-drawer__nav a:hover i,
+    .side-drawer__nav a.active i {
+      color: #7ec8d0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .side-drawer__overlay,
+      .side-drawer__panel,
+      .side-drawer__nav a,
+      .side-drawer__nav a i { transition: none; }
     }
 
     /* ========== Hero ========== */
@@ -5203,17 +5330,17 @@
   <!-- Header -->
   <header class="header" id="header">
     <div class="container header-inner">
-      <a href="#top" class="brand" id="header-brand" aria-label="NeurON Medical Centre — на главную" data-i18n-aria="header.brandAria">
+      <button type="button" class="brand" id="header-brand" aria-label="Открыть меню" data-i18n-aria="drawer.open" aria-controls="sideDrawer" aria-expanded="false">
         <img
           class="small-logo"
           id="header-logo"
           src="NeurON-icon-circle.png"
-          alt="NeurON Medical Centre"
+          alt=""
           width="40"
           height="40"
           decoding="async"
         />
-      </a>
+      </button>
 
       <nav class="nav" aria-label="Основная навигация" data-i18n-aria="nav.aria">
         <a href="#services" data-i18n="nav.services">Услуги</a>
@@ -5260,6 +5387,24 @@
       </div>
     </div>
   </header>
+
+  <div class="side-drawer" id="sideDrawer" aria-hidden="true" inert>
+    <button type="button" class="side-drawer__overlay" data-drawer-close tabindex="-1" aria-label="Закрыть меню" data-i18n-aria="drawer.close"></button>
+    <aside class="side-drawer__panel" role="dialog" aria-modal="true" aria-labelledby="sideDrawerTitle">
+      <div class="side-drawer__head">
+        <h2 id="sideDrawerTitle" data-i18n="drawer.title">Навигация</h2>
+        <button type="button" class="side-drawer__close" data-drawer-close aria-label="Закрыть меню" data-i18n-aria="drawer.close">✕</button>
+      </div>
+      <nav class="side-drawer__nav" aria-label="Основная навигация" data-i18n-aria="nav.aria">
+        <a href="#services" data-drawer-hash="#services"><i class="icon-stethoscope" aria-hidden="true"></i><span data-i18n="nav.services">Услуги</span></a>
+        <a href="#prices" data-drawer-hash="#prices"><i class="icon-receipt" aria-hidden="true"></i><span data-i18n="nav.prices">Прейскурант</span></a>
+        <a href="#doctors" data-drawer-hash="#doctors"><i class="icon-user-check" aria-hidden="true"></i><span data-i18n="nav.doctors">Врачи</span></a>
+        <a href="#about" data-drawer-hash="#about"><i class="icon-hospital" aria-hidden="true"></i><span data-i18n="nav.about">О клинике</span></a>
+        <a href="#tech" data-drawer-hash="#tech"><i class="icon-microscope" aria-hidden="true"></i><span data-i18n="nav.tech">Технологии</span></a>
+        <a href="#contacts" data-drawer-hash="#contacts"><i class="icon-map-pin" aria-hidden="true"></i><span data-i18n="nav.contacts">Контакты</span></a>
+      </nav>
+    </aside>
+  </div>
 
   <nav class="mobile-nav" id="mobileNav" aria-label="Мобильное меню" data-i18n-aria="nav.mobileAria">
     <a href="#services" data-i18n="nav.services">Услуги</a>
@@ -6518,7 +6663,7 @@
   <script src="i18n-pages.js?v=20261019"></script>
   <script src="i18n-prices.js"></script>
   <script src="i18n-seo.js"></script>
-  <script src="i18n.js?v=20261019c"></script>
+  <script src="i18n.js?v=20261020"></script>
   <script src="fx-usd.js?v=20261017b"></script>
   <script src="live-panel.js?v=20261019b"></script>
   <script>
@@ -6640,7 +6785,7 @@ window.NEURON_PRICES = {"updated":"09.09.2026","currency":"сум","categories":
   const closeGlobalSearch = () => {
     globalSearch.classList.remove("open");
     globalSearch.setAttribute("aria-hidden", "true");
-    if (!$("#mobileNav")?.classList.contains("open") && !$("#chatPanel")?.classList.contains("open")) {
+    if (!$("#mobileNav")?.classList.contains("open") && !$("#sideDrawer")?.classList.contains("is-open") && !$("#chatPanel")?.classList.contains("open")) {
       document.body.style.overflow = "";
     }
   };
@@ -6652,12 +6797,46 @@ window.NEURON_PRICES = {"updated":"09.09.2026","currency":"сум","categories":
 
   const burger = $("#burger");
   const mobileNav = $("#mobileNav");
+  const sideDrawer = $("#sideDrawer");
+  const headerBrand = $("#header-brand");
+  const syncDrawerLinks = () => {
+    const lang = document.documentElement.getAttribute("data-lang") || "uz";
+    sideDrawer?.querySelectorAll("[data-drawer-hash]").forEach((link) => {
+      const hash = link.getAttribute("data-drawer-hash") || "";
+      link.setAttribute("href", "?lang=" + lang + hash);
+    });
+  };
+  const setDrawer = (open) => {
+    if (!sideDrawer) return;
+    sideDrawer.classList.toggle("is-open", open);
+    sideDrawer.setAttribute("aria-hidden", open ? "false" : "true");
+    headerBrand?.setAttribute("aria-expanded", String(open));
+    const lock = open || mobileNav?.classList.contains("open") || globalSearch?.classList.contains("open");
+    document.body.style.overflow = lock ? "hidden" : "";
+    if (open) {
+      sideDrawer.removeAttribute("inert");
+      syncDrawerLinks();
+      sideDrawer.querySelector(".side-drawer__close")?.focus();
+    } else {
+      if (sideDrawer.contains(document.activeElement)) headerBrand?.focus();
+      sideDrawer.setAttribute("inert", "");
+    }
+  };
+  headerBrand?.addEventListener("click", () => setDrawer(!sideDrawer.classList.contains("is-open")));
+  sideDrawer?.querySelectorAll("[data-drawer-close]").forEach((el) => {
+    el.addEventListener("click", () => setDrawer(false));
+  });
+  sideDrawer?.querySelectorAll(".side-drawer__nav a").forEach((link) => {
+    link.addEventListener("click", () => setDrawer(false));
+  });
+  window.addEventListener("neuron:langchange", syncDrawerLinks);
+  syncDrawerLinks();
   const toggleMenu = (open) => {
     const willOpen = typeof open === "boolean" ? open : !mobileNav.classList.contains("open");
     mobileNav.classList.toggle("open", willOpen);
     burger.classList.toggle("open", willOpen);
     burger.setAttribute("aria-expanded", String(willOpen));
-    const lock = willOpen || globalSearch?.classList.contains("open");
+    const lock = willOpen || globalSearch?.classList.contains("open") || sideDrawer?.classList.contains("is-open");
     document.body.style.overflow = lock ? "hidden" : "";
   };
   burger.addEventListener("click", () => toggleMenu());
@@ -6668,15 +6847,16 @@ window.NEURON_PRICES = {"updated":"09.09.2026","currency":"сум","categories":
   const sections = ["services", "prices", "doctors", "about", "tech", "contacts", "booking"]
     .map((id) => document.getElementById(id))
     .filter(Boolean);
-  const navLinks = $$(".nav a");
+  const navLinks = $$(".nav a, .side-drawer__nav a");
   const syncNav = () => {
     const y = window.scrollY + 120;
     let current = null;
     sections.forEach((s) => { if (s.offsetTop <= y) current = s.id; });
     if (current === "booking") current = "contacts";
     navLinks.forEach((a) => {
-      const href = a.getAttribute("href").slice(1);
-      a.classList.toggle("active", href === current);
+      const href = a.getAttribute("href") || "";
+      const id = href.includes("#") ? href.split("#").pop() : href.replace(/^#/, "");
+      a.classList.toggle("active", id === current);
     });
   };
   window.addEventListener("scroll", syncNav, { passive: true });
@@ -7027,6 +7207,11 @@ window.NEURON_PRICES = {"updated":"09.09.2026","currency":"сум","categories":
     if (e.key === "Escape") {
       if (globalSearch?.classList.contains("open")) {
         closeGlobalSearch();
+        return;
+      }
+      if (sideDrawer?.classList.contains("is-open")) {
+        setDrawer(false);
+        headerBrand?.focus();
         return;
       }
       toggleMenu(false);
