@@ -4931,86 +4931,44 @@
       -webkit-backface-visibility: hidden;
     }
 
-    /* Thin neon frame corners around the mark */
-    .preloader-frame {
-      position: absolute;
-      inset: -18px -28px;
-      pointer-events: none;
-      opacity: 0;
-      will-change: opacity, transform;
-    }
-
-    .preloader-frame span {
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      border-color: rgba(126, 184, 192, 0.85);
-      border-style: solid;
-      border-width: 0;
-      box-shadow: 0 0 8px rgba(126, 184, 192, 0.35);
-    }
-
-    .preloader-frame span:nth-child(1) {
-      top: 0; left: 0;
-      border-top-width: 1px;
-      border-left-width: 1px;
-    }
-    .preloader-frame span:nth-child(2) {
-      top: 0; right: 0;
-      border-top-width: 1px;
-      border-right-width: 1px;
-    }
-    .preloader-frame span:nth-child(3) {
-      bottom: 0; left: 0;
-      border-bottom-width: 1px;
-      border-left-width: 1px;
-    }
-    .preloader-frame span:nth-child(4) {
-      bottom: 0; right: 0;
-      border-bottom-width: 1px;
-      border-right-width: 1px;
-    }
-
     .preloader-stage {
-      position: relative;
+      position: absolute;
+      inset: 0;
       z-index: 3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: min(94vw, 560px);
-      max-width: 100%;
-      max-height: 100%;
-      padding: 24px 16px;
+      display: grid;
+      place-items: center;
+      width: auto;
+      height: auto;
+      max-width: none;
+      max-height: none;
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
     .preloader-logo {
       position: relative;
-      width: min(92vw, 520px);
-      max-width: 100%;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      width: auto;
+      max-width: none;
+      margin: 0;
+      display: grid;
+      place-items: center;
       background: transparent;
     }
 
     .preloader-compose {
       position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      max-width: 100%;
+      display: grid;
+      place-items: center;
+      width: min(64vw, 274px);
+      height: min(64vw, 274px);
     }
 
     .preloader-brain-wrap {
       position: relative;
       z-index: 2;
-      width: min(46vw, 196px);
-      height: min(46vw, 196px);
+      width: 100%;
+      height: 100%;
       display: grid;
       place-items: center;
       flex-shrink: 0;
@@ -5020,7 +4978,7 @@
       will-change: transform, opacity;
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
-      margin-bottom: calc(min(46vw, 196px) * -0.1);
+      margin-bottom: 0;
       -webkit-mask-image: -webkit-radial-gradient(white, black);
     }
 
@@ -5075,6 +5033,17 @@
       mix-blend-mode: screen;
     }
 
+    .preloader-brain-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -22%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(62, 196, 207, 0.42) 0%, rgba(46, 114, 124, 0.08) 46%, transparent 70%);
+      z-index: 0;
+      pointer-events: none;
+      animation: neuron-core-glow 2.8s ease-in-out infinite;
+    }
+
     .preloader-ring {
       position: absolute;
       inset: -6px;
@@ -5088,64 +5057,165 @@
       will-change: transform, opacity;
     }
 
-    .preloader-curtain {
-      /* Absolute — height never shifts brain layout (no reflow jumps).
-         Center with left/right — GSAP owns transform (no translateX conflict). */
+    .preloader-waves,
+    .preloader-synapses {
       position: absolute;
-      left: 0;
-      right: 0;
-      top: calc(100% + 6px);
-      z-index: 1;
-      width: 100%;
-      max-width: min(92vw, 520px);
-      margin-left: auto;
-      margin-right: auto;
-      height: 0;
-      overflow: hidden;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
       pointer-events: none;
-      transform: translate3d(0, 0, 0);
-      will-change: transform;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
+    }
+
+    .preloader-waves {
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .preloader-waves span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 1.5px solid rgba(158, 244, 255, 0.72);
+      box-shadow:
+        0 0 18px rgba(62, 196, 207, 0.55),
+        0 0 42px rgba(46, 164, 178, 0.28),
+        inset 0 0 16px rgba(62, 196, 207, 0.16);
+      opacity: 0;
+    }
+
+    .preloader-waves span:nth-child(even) {
+      border-color: rgba(126, 184, 192, 0.45);
+      border-width: 1px;
+    }
+
+    .preloader-orbit {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 1;
+      width: 146%;
+      height: 146%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .preloader-orbit span {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 20deg,
+        transparent 0deg 70deg,
+        rgba(190, 255, 255, 0.7) 86deg,
+        transparent 108deg 210deg,
+        rgba(62, 196, 207, 0.45) 232deg,
+        transparent 258deg 360deg
+      );
+      -webkit-mask: radial-gradient(circle, transparent 61%, #000 66%, #000 70%, transparent 76%);
+      mask: radial-gradient(circle, transparent 61%, #000 66%, #000 70%, transparent 76%);
+      animation: neuron-orbit 8.5s linear infinite;
+    }
+
+    .preloader-synapses {
+      width: min(96vw, 560px);
+      height: min(96vw, 560px);
+      z-index: 1;
+    }
+
+    .preloader-synapses span {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #d8fbff;
+      box-shadow: 0 0 10px #3ec4cf, 0 0 22px rgba(62, 196, 207, 0.65);
+      opacity: 0;
+    }
+
+    .preloader-synapses span:nth-child(3n) { width: 3px; height: 3px; }
+    .preloader-synapses span:nth-child(4n) { width: 7px; height: 7px; }
+    .preloader-synapses span:nth-child(1) { left: 10%; top: 18%; }
+    .preloader-synapses span:nth-child(2) { left: 22%; top: 8%; }
+    .preloader-synapses span:nth-child(3) { left: 38%; top: 6%; }
+    .preloader-synapses span:nth-child(4) { left: 54%; top: 10%; }
+    .preloader-synapses span:nth-child(5) { left: 72%; top: 12%; }
+    .preloader-synapses span:nth-child(6) { left: 88%; top: 24%; }
+    .preloader-synapses span:nth-child(7) { left: 94%; top: 42%; }
+    .preloader-synapses span:nth-child(8) { left: 90%; top: 62%; }
+    .preloader-synapses span:nth-child(9) { left: 78%; top: 80%; }
+    .preloader-synapses span:nth-child(10) { left: 60%; top: 90%; }
+    .preloader-synapses span:nth-child(11) { left: 40%; top: 88%; }
+    .preloader-synapses span:nth-child(12) { left: 22%; top: 78%; }
+    .preloader-synapses span:nth-child(13) { left: 8%; top: 62%; }
+    .preloader-synapses span:nth-child(14) { left: 4%; top: 40%; }
+    .preloader-synapses span:nth-child(15) { left: 16%; top: 32%; }
+    .preloader-synapses span:nth-child(16) { left: 80%; top: 34%; }
+
+    @keyframes neuron-core-glow {
+      0%, 100% { opacity: 0.45; }
+      50% { opacity: 0.95; }
+    }
+
+    @keyframes neuron-orbit {
+      to { transform: rotate(360deg); }
+    }
+
+    .preloader-curtain {
+      position: absolute;
+      left: 50%;
+      top: calc(100% + 28px);
+      z-index: 3;
+      width: max-content;
+      max-width: 92vw;
+      height: auto;
+      overflow: visible;
+      pointer-events: none;
+      transform: translateX(-50%);
     }
 
     .preloader-wordmark {
       display: block;
-      width: 100%;
-      max-width: 100%;
+      width: max-content;
+      max-width: 92vw;
       box-sizing: border-box;
-      padding: 12px 12px 6px;
+      margin: 0 auto;
+      padding: 0;
       text-align: center;
-      color: #ffffff;
-      white-space: normal;
-      overflow-wrap: anywhere;
-      transform: translate3d(0, 0, 0);
-      will-change: transform;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
+      color: #f4f7f7;
+      white-space: nowrap;
+      clip-path: inset(0 100% 0 0);
+      -webkit-clip-path: inset(0 100% 0 0);
     }
 
     .preloader-name {
       display: block;
-      font-family: var(--font-display);
-      font-size: clamp(34px, 7.2vw, 52px);
-      font-weight: 600;
-      letter-spacing: -0.035em;
-      line-height: 1.1;
-      color: #ffffff;
+      font-family: "Montserrat", var(--font-display), sans-serif;
+      font-size: clamp(34px, 6.4vw, 58px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
       -webkit-font-smoothing: antialiased;
     }
 
+    .preloader-neur { color: #f4f7f7; }
+
+    .preloader-on { color: #3ec4cf; }
+
     .preloader-tag {
       display: block;
-      margin-top: 10px;
-      font-family: var(--font-body);
-      font-size: clamp(12px, 2.5vw, 15px);
-      font-weight: 500;
-      letter-spacing: 0.2em;
+      margin-top: 8px;
+      font-family: "Montserrat", var(--font-body), sans-serif;
+      font-size: clamp(11px, 2.1vw, 14px);
+      font-weight: 400;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      line-height: 1.35;
-      color: #ffffff;
+      line-height: 1.3;
+      color: rgba(244, 247, 247, 0.78);
     }
 
     body.preloader-active {
@@ -5167,22 +5237,24 @@
       }
 
       .preloader-stage {
-        width: 100%;
-        max-width: 100%;
-        /* Lift block so title has room below the circle (not clipped by bottom UI) */
-        transform: translate3d(0, -3vh, 0);
-        padding: 12px 18px 20px;
+        inset: 0;
+        width: auto;
+        transform: none;
+        padding: 0;
       }
 
       .preloader-logo {
-        width: 100%;
-        max-width: min(86vw, 340px);
+        width: auto;
+        max-width: none;
       }
 
-      .preloader-brain-wrap {
-        width: min(34vw, 112px);
-        height: min(34vw, 112px);
-        margin-bottom: -4px;
+      .preloader-compose {
+        width: min(48vw, 157px);
+        height: min(48vw, 157px);
+      }
+
+      .preloader-curtain {
+        top: calc(100% + 18px);
       }
 
       .preloader-ring {
@@ -5190,29 +5262,20 @@
         box-shadow: 0 0 12px rgba(126, 184, 192, 0.22);
       }
 
-      /* Frame corners often look “cut” on narrow screens */
-      .preloader-frame {
-        display: none;
-      }
-
-      .preloader-curtain {
-        max-width: 100%;
-      }
-
       .preloader-wordmark {
-        padding: 10px 2px 2px;
+        padding: 0;
       }
 
       .preloader-name {
-        font-size: clamp(26px, 8vw, 34px);
-        letter-spacing: -0.02em;
+        font-size: clamp(22px, 7vw, 30px);
+        letter-spacing: -0.03em;
       }
 
       .preloader-tag {
-        margin-top: 6px;
-        font-size: clamp(10px, 2.7vw, 12px);
-        letter-spacing: 0.11em; /* wide tracking was overflowing iPhone edges */
-        line-height: 1.4;
+        margin-top: 4px;
+        font-size: clamp(8px, 2.2vw, 11px);
+        letter-spacing: 0.16em;
+        line-height: 1.35;
       }
 
       /* Ghost chromatic layers: filters + blend often clip on iOS — soften */
@@ -5238,26 +5301,31 @@
     }
 
     /* Short phones / landscape: keep composition fully visible */
+    @media (prefers-reduced-motion: reduce) {
+      .preloader-brain-wrap::before,
+      .preloader-orbit span { animation: none; }
+    }
+
     @media (max-width: 900px) and (max-height: 520px) {
       .preloader-stage {
-        transform: translate3d(0, 0, 0);
-        padding: 8px 16px;
+        inset: 0;
+        transform: none;
+        padding: 0;
       }
-      .preloader-brain-wrap {
-        width: 72px;
-        height: 72px;
-        margin-bottom: -2px;
+      .preloader-compose {
+        width: 101px;
+        height: 101px;
+      }
+      .preloader-curtain {
+        top: calc(100% + 10px);
       }
       .preloader-name {
-        font-size: 22px;
+        font-size: 20px;
       }
       .preloader-tag {
-        font-size: 10px;
-        letter-spacing: 0.1em;
-        margin-top: 4px;
-      }
-      .preloader-frame {
-        display: none;
+        font-size: 9px;
+        letter-spacing: 0.14em;
+        margin-top: 3px;
       }
     }
   </style>
@@ -5278,10 +5346,17 @@
     </div>
     <div class="preloader-stage">
       <div id="preloader-logo" class="preloader-logo">
-        <div class="preloader-frame" id="preloader-frame" aria-hidden="true">
-          <span></span><span></span><span></span><span></span>
-        </div>
         <div class="preloader-compose">
+          <div class="preloader-synapses" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="preloader-orbit" aria-hidden="true"><span></span></div>
+          <div class="preloader-waves" id="preloader-waves" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
           <div id="preloader-brain-wrap" class="preloader-brain-wrap">
             <div id="preloader-glitch" class="preloader-glitch">
               <img
@@ -5319,7 +5394,7 @@
           </div>
           <div id="preloader-curtain" class="preloader-curtain" aria-hidden="true">
             <div id="preloader-wordmark" class="preloader-wordmark">
-              <span class="preloader-name">NeurON</span>
+              <span class="preloader-name"><span class="preloader-neur">Neur</span><span class="preloader-on">ON</span></span>
               <span class="preloader-tag">Medical Centre</span>
             </div>
           </div>
@@ -7232,10 +7307,8 @@ window.NEURON_PRICES = {"updated":"09.09.2026","currency":"сум","categories":
     var preGhostCyan = document.getElementById("preloader-ghost-cyan");
     var preGhostMagenta = document.getElementById("preloader-ghost-magenta");
     var preRing = document.getElementById("preloader-ring");
-    var preFrame = document.getElementById("preloader-frame");
     var preScan = document.getElementById("preloader-scanline");
     var preScanGlow = document.getElementById("preloader-scan-glow");
-    var preCurtain = document.getElementById("preloader-curtain");
     var preWord = document.getElementById("preloader-wordmark");
     var headerLogo = document.getElementById("header-logo");
     var heroLogo = document.getElementById("hero-graphics") || document.getElementById("hero-logo");
@@ -7268,7 +7341,6 @@ window.NEURON_PRICES = {"updated":"09.09.2026","currency":"сум","categories":
 
     var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var isMobile = window.matchMedia("(max-width: 640px)").matches;
-    var isShort = window.matchMedia("(max-height: 520px)").matches;
     /* Slightly slower cinematic pace; overlaps remove hard cuts */
     var SLOW = 1.2;
     var snap1 = gsap.utils.snap(1);
@@ -7492,26 +7564,6 @@ window.NEURON_PRICES = {"updated":"09.09.2026","currency":"сум","categories":
       });
     }
 
-    function measureCurtainOpen() {
-      if (!preCurtain || !preWord) return isMobile ? 110 : 120;
-      var prevH = preCurtain.style.height;
-      var prevO = preCurtain.style.opacity;
-      preCurtain.style.opacity = "0";
-      preCurtain.style.height = "auto";
-      var h = Math.ceil(
-        Math.max(
-          preWord.getBoundingClientRect().height || 0,
-          preWord.scrollHeight || 0,
-          preWord.offsetHeight || 0
-        )
-      );
-      preCurtain.style.height = prevH || "0px";
-      preCurtain.style.opacity = prevO || "";
-      var pad = isMobile ? 20 : 12;
-      var minH = isMobile ? (isShort ? 72 : 100) : 118;
-      return gsap.utils.snap(2, Math.max(h + pad, minH));
-    }
-
     /* Soft RGB-split — composited x/y/opacity only */
     function buildGlitchTimeline() {
       var gtl = gsap.timeline({
@@ -7586,18 +7638,17 @@ window.NEURON_PRICES = {"updated":"09.09.2026","currency":"сум","categories":
       }
 
       var viewH = syncPreloaderViewport();
-      /* Measure once before timeline — no mid-timeline height snaps */
-      var openH = measureCurtainOpen();
       var scanTravel = snap1(Math.max(viewH, 480));
-      var useFrame = preFrame && window.getComputedStyle(preFrame).display !== "none";
       var bg = preloader.querySelector(".preloader-bg");
       var fx = preloader.querySelector(".preloader-fx");
       var stage = preloader.querySelector(".preloader-stage");
+      var preWaves = preloader.querySelectorAll("#preloader-waves span");
+      var preSparks = preloader.querySelectorAll(".preloader-synapses span");
 
       if (headerLogo) gsap.set(headerLogo, { autoAlpha: 0, scale: 0.92, force3D: true });
 
       pinGpu(
-        [preloader, preLogo, preBrain, preGlitch, preWord, preScan, preScanGlow, preRing, preFrame, bg, fx, stage].filter(
+        [preloader, preLogo, preBrain, preGlitch, preWord, preScan, preScanGlow, preRing, bg, fx, stage].filter(
           Boolean
         )
       );
@@ -7613,12 +7664,23 @@ window.NEURON_PRICES = {"updated":"09.09.2026","currency":"сум","categories":
         z: 0,
         force3D: true,
       });
-      if (preCurtain && preWord) {
-        /* Lock height once; animate wordmark with y only */
-        gsap.set(preCurtain, { height: openH, overflow: "hidden", force3D: true });
-        gsap.set(preWord, { y: -openH, x: 0, z: 0, autoAlpha: 1, force3D: true });
+      if (preWord) {
+        gsap.set(preWord, {
+          x: 0,
+          y: 0,
+          scale: 0.98,
+          transformOrigin: "50% 0%",
+          autoAlpha: 1,
+          clipPath: "inset(0 100% 0 0)",
+          force3D: false,
+        });
       }
-      if (preFrame) gsap.set(preFrame, { autoAlpha: 0, scale: 0.97, force3D: true });
+      if (preWaves.length) {
+        gsap.set(preWaves, { xPercent: -50, yPercent: -50, scale: 0.7, autoAlpha: 0, force3D: true });
+      }
+      if (preSparks.length) {
+        gsap.set(preSparks, { autoAlpha: 0, scale: 0.6, force3D: true });
+      }
       if (preRing) gsap.set(preRing, { autoAlpha: 0, scale: 0.92, force3D: true });
       if (preScan) gsap.set(preScan, { autoAlpha: 0, y: 0, x: 0, force3D: true });
       if (preScanGlow) gsap.set(preScanGlow, { autoAlpha: 0, y: 0, x: 0, force3D: true });
@@ -7665,31 +7727,66 @@ window.NEURON_PRICES = {"updated":"09.09.2026","currency":"сум","categories":
         {
           autoAlpha: 1,
           scale: 1,
+          x: 0,
+          y: 0,
           duration: dur(isMobile ? 0.7 : 0.9),
           ease: "power2.out",
         },
         "brain+=0.05"
       );
 
-      if (useFrame) {
-        tl.to(
-          preFrame,
-          { autoAlpha: 1, scale: 1, duration: dur(0.55), ease: "power2.out" },
-          "brain+=0.18"
-        );
+      /* Rings and sparks run beside the timeline so their loops do not delay the wordmark. */
+      var waveTween = null;
+      var sparkTween = null;
+      if (preWaves.length || preSparks.length) {
+        tl.add(function () {
+          if (preWaves.length) {
+            waveTween = gsap.fromTo(
+              preWaves,
+              { xPercent: -50, yPercent: -50, scale: 0.72, autoAlpha: 0.75 },
+              {
+                xPercent: -50,
+                yPercent: -50,
+                scale: 2.15,
+                autoAlpha: 0,
+                duration: dur(1.7),
+                stagger: 0.42,
+                ease: "sine.out",
+                repeat: -1,
+                transformOrigin: "50% 50%",
+              }
+            );
+          }
+          if (preSparks.length) {
+            sparkTween = gsap.fromTo(
+              preSparks,
+              { autoAlpha: 0.12, scale: 0.5 },
+              {
+                autoAlpha: 0.95,
+                scale: 1.45,
+                duration: dur(0.65),
+                stagger: { each: 0.08 },
+                yoyo: true,
+                repeat: -1,
+                ease: "sine.inOut",
+              }
+            );
+          }
+        }, "brain");
       }
 
       tl.add(buildGlitchTimeline(), "brain+=" + dur(0.28));
 
-      /* —— title reveal (overlap with glitch tail) —— */
+      /* Wordmark stays put and is written left to right. */
       tl.addLabel("title", "-=0.22");
       if (preWord) {
         tl.to(
           preWord,
           {
-            y: 0,
-            duration: dur(isMobile ? 0.7 : 0.9),
-            ease: "power2.out",
+            clipPath: "inset(0 0% 0 0)",
+            scale: 1,
+            duration: dur(isMobile ? 0.95 : 1.15),
+            ease: "power2.inOut",
           },
           "title"
         );
@@ -7700,19 +7797,26 @@ window.NEURON_PRICES = {"updated":"09.09.2026","currency":"сум","categories":
 
       /* —— retract (overlap into fly) —— */
       tl.addLabel("retract");
+      tl.add(function () {
+        if (waveTween) waveTween.kill();
+        if (sparkTween) sparkTween.kill();
+      }, "retract");
       var retractDur = dur(isMobile ? 0.5 : 0.62);
       if (preWord) {
         tl.to(
           preWord,
-          { y: -openH, duration: retractDur, ease: "power2.inOut" },
+          { autoAlpha: 0, duration: retractDur, ease: "power2.inOut" },
           "retract"
         );
       }
-      if (useFrame && preFrame) {
-        tl.to(preFrame, { autoAlpha: 0, duration: dur(0.4), ease: "power2.in" }, "retract");
-      }
       if (preRing) {
         tl.to(preRing, { autoAlpha: 0, duration: dur(0.35) }, "retract");
+      }
+      if (preWaves.length) {
+        tl.to(preWaves, { autoAlpha: 0, duration: dur(0.3) }, "retract");
+      }
+      if (preSparks.length) {
+        tl.to(preSparks, { autoAlpha: 0, duration: dur(0.3) }, "retract");
       }
       if (preGhostCyan) tl.set(preGhostCyan, { autoAlpha: 0 }, "retract");
       if (preGhostMagenta) tl.set(preGhostMagenta, { autoAlpha: 0 }, "retract");
