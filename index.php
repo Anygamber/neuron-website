@@ -20,6 +20,41 @@ function neuron_swap_html(string $html, string $pattern, string $value): string
     return is_string($next) ? $next : $html;
 }
 
+function neuron_inject_geo(string $html): string
+{
+    $tags = [
+        'geo.region' => 'UZ-TK',
+        'geo.placename' => 'Tashkent',
+        'geo.position' => '41.3549516;69.3108567',
+        'ICBM' => '41.3549516, 69.3108567',
+    ];
+    $missing = [];
+    foreach ($tags as $name => $value) {
+        $pattern = '/(<meta\s+name="' . preg_quote($name, '/') . '"\s+content=")[^"]*(")/i';
+        if (preg_match($pattern, $html)) {
+            $html = neuron_swap_html(
+                $html,
+                $pattern,
+                htmlspecialchars($value, ENT_QUOTES | ENT_HTML5, 'UTF-8')
+            );
+            continue;
+        }
+        $missing[] = '<meta name="' . htmlspecialchars($name, ENT_QUOTES | ENT_HTML5, 'UTF-8')
+            . '" content="' . htmlspecialchars($value, ENT_QUOTES | ENT_HTML5, 'UTF-8') . '" />';
+    }
+    if ($missing === []) {
+        return $html;
+    }
+    $block = implode("\n  ", $missing);
+    $next = preg_replace(
+        '/(<meta\s+name="theme-color"\s+content="[^"]*"\s*\/?>)/i',
+        $block . "\n  $1",
+        $html,
+        1
+    );
+    return is_string($next) ? $next : $html;
+}
+
 function neuron_apply_visible_copy(string $html, array $graph): string
 {
     $nodes = $graph['@graph'] ?? [];
@@ -190,6 +225,7 @@ foreach (
     );
 }
 $html = $replace($html, '/(<link\s+rel="canonical"\s+href=")[^"]*(")/i', $url);
+$html = neuron_inject_geo($html);
 
 $schemaRaw = file_get_contents($root . '/schema-i18n.json');
 $schema = json_decode($schemaRaw === false ? '' : $schemaRaw, true);

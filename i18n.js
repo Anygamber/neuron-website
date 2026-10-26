@@ -1213,10 +1213,33 @@
     const kept = data["@graph"].filter((item) => {
       const type = item && item["@type"];
       const types = Array.isArray(type) ? type : [type];
-      return types.indexOf("FAQPage") === -1 && types.indexOf("Physician") === -1;
+      return types.indexOf("FAQPage") === -1
+        && types.indexOf("Physician") === -1
+        && types.indexOf("BreadcrumbList") === -1;
     });
+    const homeUrl = "https://neuronmedical.uz/?lang=uz";
+    const crumbNames = { uz: "Bosh sahifa", ru: "Главная", en: "Home" };
+    const crumbHere = { ru: "Русская версия", en: "English version" };
+    const crumbs = [{
+      "@type": "ListItem",
+      position: 1,
+      name: crumbNames[lang] || crumbNames.uz,
+      item: lang === "uz" ? page : homeUrl
+    }];
+    if (crumbHere[lang]) {
+      crumbs.push({
+        "@type": "ListItem",
+        position: 2,
+        name: crumbHere[lang],
+        item: page
+      });
+    }
     data["@graph"] = kept.concat(
       [{
+        "@type": "BreadcrumbList",
+        "@id": page + "#breadcrumb",
+        itemListElement: crumbs
+      }, {
         "@type": "FAQPage",
         "@id": "https://neuronmedical.uz/#faq",
         inLanguage: lang,
