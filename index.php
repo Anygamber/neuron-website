@@ -55,6 +55,16 @@ function neuron_inject_geo(string $html): string
     return is_string($next) ? $next : $html;
 }
 
+function neuron_inject_google_site_verification(string $html): string
+{
+    if (stripos($html, 'name="google-site-verification"') !== false) {
+        return $html;
+    }
+    $tag = '<meta name="google-site-verification" content="Shz3pfUKHM2TyL6iZdIZepvHQAAe4klejX5C31PNIyQ" />';
+    $next = preg_replace('/<\/head>/i', "  {$tag}\n</head>", $html, 1);
+    return is_string($next) ? $next : $html;
+}
+
 function neuron_apply_visible_copy(string $html, array $graph): string
 {
     $nodes = $graph['@graph'] ?? [];
@@ -226,6 +236,7 @@ foreach (
 }
 $html = $replace($html, '/(<link\s+rel="canonical"\s+href=")[^"]*(")/i', $url);
 $html = neuron_inject_geo($html);
+$html = neuron_inject_google_site_verification($html);
 
 $schemaRaw = file_get_contents($root . '/schema-i18n.json');
 $schema = json_decode($schemaRaw === false ? '' : $schemaRaw, true);

@@ -143,6 +143,10 @@ class SeoHtmlTests(unittest.TestCase):
 
     def test_geo_pin_and_breadcrumbs_follow_the_language(self) -> None:
         html = (PROJECT_ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertIn(
+            'name="google-site-verification" content="Shz3pfUKHM2TyL6iZdIZepvHQAAe4klejX5C31PNIyQ"',
+            html,
+        )
         self.assertIn('name="geo.region" content="UZ-TK"', html)
         self.assertIn('name="geo.position" content="41.3549516;69.3108567"', html)
         self.assertIn('name="ICBM" content="41.3549516, 69.3108567"', html)
@@ -157,6 +161,12 @@ class SeoHtmlTests(unittest.TestCase):
             self.assertRegex(html, rf'href="{re.escape(href)}"[^>]*rel="noopener noreferrer"')
 
         ru_body, _lang = inject_lang_meta(html, "ru")
+        self.assertEqual(
+            ru_body.count(
+                'name="google-site-verification" content="Shz3pfUKHM2TyL6iZdIZepvHQAAe4klejX5C31PNIyQ"'
+            ),
+            1,
+        )
         ru = _json_ld(ru_body)
         clinic = _clinic(ru)
         self.assertEqual(clinic["geo"]["latitude"], 41.3549516)

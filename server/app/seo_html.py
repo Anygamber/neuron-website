@@ -49,6 +49,19 @@ def _swap(html: str, pattern: str, value: str, *, quote: bool = True) -> str:
     return updated
 
 
+_GOOGLE_SITE_VERIFICATION = (
+    '<meta name="google-site-verification" '
+    'content="Shz3pfUKHM2TyL6iZdIZepvHQAAe4klejX5C31PNIyQ" />'
+)
+
+
+def inject_google_site_verification(html: str) -> str:
+    """Keep the Search Console token in the served head."""
+    if re.search(r'<meta\s+name="google-site-verification"\s', html, flags=re.IGNORECASE):
+        return html
+    return html.replace("</head>", f"  {_GOOGLE_SITE_VERIFICATION}\n</head>", 1)
+
+
 _GEO_METAS = (
     ("geo.region", "UZ-TK"),
     ("geo.placename", "Tashkent"),
@@ -222,5 +235,6 @@ def inject_lang_meta(html: str, lang: str) -> tuple[str, str]:
         )
     html = _swap(html, r'(<link\s+rel="canonical"\s+href=")[^"]*(")', url)
     html = inject_geo(html)
+    html = inject_google_site_verification(html)
     html = inject_schema(html, code)
     return html, html_lang
