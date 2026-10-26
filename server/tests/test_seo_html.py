@@ -92,7 +92,14 @@ class SeoHtmlTests(unittest.TestCase):
         self.assertIn("импульсную радиочастотную терапию", ru_body)
 
         physicians = [node for node in ru["@graph"] if node["@type"] == "Physician"]
-        self.assertEqual(len(physicians), 7)
+        self.assertEqual(len(physicians), 39)
+        self.assertEqual(ru_body.count('id="doctor-burnashev"'), 1)
+        self.assertIn('data-i18n="doctors.more"', ru_body)
+        added = next(node for node in physicians if node["@id"].endswith("#doctor-abdurahmanov"))
+        self.assertEqual(added["name"], "Абдурахманов Отабек Мухамматсолиевич")
+        self.assertEqual(added["medicalSpecialty"], "Гематолог-трансфузиолог")
+        self.assertEqual(added["worksFor"], {"@id": "https://neuronmedical.uz/#organization"})
+        self.assertIn(">Абдурахманов Отабек Мухамматсолиевич<", ru_body)
         burnashev = next(node for node in physicians if node["@id"].endswith("#doctor-burnashev"))
         self.assertEqual(burnashev["name"], "Бурнашев Марсель Ильдарович")
         self.assertEqual(burnashev["medicalSpecialty"], "Врач высшей категории · Нейрохирург")
@@ -118,6 +125,12 @@ class SeoHtmlTests(unittest.TestCase):
         )
         self.assertEqual(en_doc["name"], "Marsel Ildarovich Burnashev")
         self.assertIn(">Marsel Ildarovich Burnashev<", en_body)
+        en_added = next(
+            node for node in en["@graph"] if node["@type"] == "Physician" and node["@id"].endswith("abdurahmanov")
+        )
+        self.assertEqual(en_added["name"], "Otabek Muhammatsolievich Abdurahmanov")
+        self.assertIn(">Otabek Muhammatsolievich Abdurahmanov<", en_body)
+        self.assertEqual(len([node for node in en["@graph"] if node["@type"] == "Physician"]), 39)
         self.assertNotIn("Кто такой нейрохирург и когда обращаться в Ташкенте?", en_body)
 
         uz_body, _lang = inject_lang_meta(html, "uz")
@@ -125,6 +138,8 @@ class SeoHtmlTests(unittest.TestCase):
         uz_faq = next(node for node in uz["@graph"] if node["@type"] == "FAQPage")
         self.assertEqual(uz_faq["mainEntity"][0]["name"], "Neyroxirurg kim va Toshkentda qachon murojaat qilish kerak?")
         self.assertIn(">Neyroxirurg kim va Toshkentda qachon murojaat qilish kerak?<", uz_body)
+        self.assertIn(">Abdurahmanov Otabek Muhammatsolievich<", uz_body)
+        self.assertEqual(len([node for node in uz["@graph"] if node["@type"] == "Physician"]), 39)
 
     def test_geo_pin_and_breadcrumbs_follow_the_language(self) -> None:
         html = (PROJECT_ROOT / "index.html").read_text(encoding="utf-8")
