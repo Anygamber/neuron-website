@@ -3,13 +3,12 @@
 from __future__ import annotations
 
 import logging
-import re
 from contextlib import asynccontextmanager
 from typing import Any
 
 from fastapi import APIRouter, Depends, FastAPI, Header, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse, Response
+from fastapi.responses import HTMLResponse, RedirectResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
@@ -35,6 +34,7 @@ from .schemas_chat import (
 from . import services_analytics as analytics_svc
 from . import services_chat as chat_svc
 from . import services_staff as staff_svc
+from .seo_html import inject_lang_meta, resolve_lang
 from .telegram import notify_booking, notify_callback
 
 # Unlisted analytics dashboard path (not linked from public pages)
@@ -491,111 +491,9 @@ def chat_board_refresh(
     return {"ok": True}
 
 
-# Static website (project root) — register after API routes
+# Static website (project root) — register after API routes.
+# Language strings live in seo-meta.json (shared with Apache index.php).
 _index = PROJECT_ROOT / "index.html"
-
-_OG_META = {
-    "ru": {
-        "title": "Нейрохирург Ташкент | NeurON — нейрохирургия и Центр боли",
-        "description": (
-            "Нейрохирург в Ташкенте: опухоль головного мозга, аневризма, грыжа позвоночника, "
-            "невралгия тройничного нерва, эпилепсия, Pain Management (блокады, РЧА, COSMAN G4). "
-            "Клиника NeurON."
-        ),
-        "locale": "ru_RU",
-        "url": "https://neuronmedical.uz/?lang=ru",
-        "html_lang": "ru",
-    },
-    "uz": {
-        "title": "Neyroxirurg Toshkent | NeurON — neyroxirurgiya va Og‘riq markazi",
-        "description": (
-            "Toshkentda neyroxirurg: miya o‘smasi, anevrizma, umurtqa churrasi, "
-            "uch shoxli nerv nevralgiyasi, epilepsiya, Pain Management (blokada, RChA, COSMAN G4). "
-            "NeurON klinikasi."
-        ),
-        "locale": "uz_UZ",
-        "url": "https://neuronmedical.uz/?lang=uz",
-        "html_lang": "uz",
-    },
-    "en": {
-        "title": "Neurosurgeon Tashkent | NeurON — Neurosurgery & Pain Management",
-        "description": (
-            "Neurosurgeon in Tashkent, Uzbekistan: brain tumor, aneurysm, disc herniation, "
-            "trigeminal neuralgia, epilepsy surgery, Pain Management (epidural block, RFA, COSMAN G4). "
-            "NeurON Medical Centre."
-        ),
-        "locale": "en_US",
-        "url": "https://neuronmedical.uz/?lang=en",
-        "html_lang": "en",
-    },
-}
-
-
-def _inject_og_meta(html: str, lang: str) -> str:
-    """Swap title/description/OG tags so Telegram/crawlers see the right language."""
-    meta = _OG_META.get(lang) or _OG_META["uz"]
-    title = meta["title"]
-    description = meta["description"]
-    locale = meta["locale"]
-    url = meta["url"]
-    html_lang = meta["html_lang"]
-
-    html = re.sub(r'(<html\b[^>]*\blang=")[^"]*(")', rf"\g<1>{html_lang}\2", html, count=1)
-    html = re.sub(
-        r'(<html\b[^>]*\bdata-lang=")[^"]*(")',
-        rf"\g<1>{html_lang}\2",
-        html,
-        count=1,
-        flags=re.IGNORECASE,
-    )
-    html = re.sub(
-        r"(<title>)[^<]*(</title>)",
-        rf"\g<1>{title}\g<2>",
-        html,
-        count=1,
-        flags=re.IGNORECASE,
-    )
-    html = re.sub(
-        r'(<meta\s+name="description"\s+content=")[^"]*(")',
-        rf"\g<1>{description}\2",
-        html,
-        count=1,
-        flags=re.IGNORECASE,
-    )
-    for prop, value in (
-        ("og:title", title),
-        ("og:description", description),
-        ("og:locale", locale),
-        ("og:url", url),
-        ("twitter:title", title),
-        ("twitter:description", description),
-    ):
-        # name= for twitter, property= for og
-        attr = "name" if prop.startswith("twitter:") else "property"
-        html = re.sub(
-            rf'(<meta\s+{attr}="{re.escape(prop)}"\s+content=")[^"]*(")',
-            rf"\g<1>{value}\2",
-            html,
-            count=1,
-            flags=re.IGNORECASE,
-        )
-    html = re.sub(
-        r'(<link\s+rel="canonical"\s+href=")[^"]*(")',
-        rf"\g<1>{url}\2",
-        html,
-        count=1,
-        flags=re.IGNORECASE,
-    )
-    # Ensure clients start with the requested language before JS runs
-    if 'data-lang="' not in html[:200]:
-        html = re.sub(
-            r"(<html\b[^>]*)(>)",
-            rf'\g<1> data-lang="{lang}"\2',
-            html,
-            count=1,
-            flags=re.IGNORECASE,
-        )
-    return html
 
 
 _APP: FastAPI | None = None
@@ -635,11 +533,16 @@ def create_app() -> FastAPI:
 
         @application.get("/")
         def root_index(lang: str | None = Query(default=None)):
-            chosen = (lang or "uz").lower()
-            if chosen not in _OG_META:
-                chosen = "uz"
+            chosen = resolve_lang(lang)
             html = _index.read_text(encoding="utf-8")
-            return HTMLResponse(_inject_og_meta(html, chosen))
+            body, html_lang = inject_lang_meta(html, chosen)
+            return HTMLResponse(body, headers={"Content-Language": html_lang})
+
+        @application.get("/index.html", include_in_schema=False)
+        def index_html_alias(request: Request):
+            """One homepage URL. Query string (including lang) is kept."""
+            target = "/?" + request.url.query if request.url.query else "/"
+            return RedirectResponse(url=target, status_code=301)
 
         application.mount(
             "/",

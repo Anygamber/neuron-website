@@ -1,5 +1,15 @@
 RewriteEngine On
 
+# Local URL: Apache keeps the original 404 status. A redirect would turn it into 302/200.
+ErrorDocument 404 /404.html
+
+# Static public_html copy. Passenger serves / itself and does not use this index.
+DirectoryIndex index.php index.html
+
+# /index.html and /index.php are the same document as /. Keep the query string.
+RewriteCond %{THE_REQUEST} \s/+index\.(?:php|html)(?:[\s?]|$) [NC]
+RewriteRule ^index\.(?:php|html)$ / [R=301,L,QSA]
+
 # Before any redirect onto the main site.
 RewriteRule ^analytics-x7k9m2p4q8w1n5v3/?$ - [L]
 
