@@ -126,6 +126,52 @@ class SeoHtmlTests(unittest.TestCase):
         self.assertEqual(uz_faq["mainEntity"][0]["name"], "Neyroxirurg kim va Toshkentda qachon murojaat qilish kerak?")
         self.assertIn(">Neyroxirurg kim va Toshkentda qachon murojaat qilish kerak?<", uz_body)
 
+    def test_geo_pin_and_breadcrumbs_follow_the_language(self) -> None:
+        html = (PROJECT_ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertIn('name="geo.region" content="UZ-TK"', html)
+        self.assertIn('name="geo.position" content="41.3549516;69.3108567"', html)
+        self.assertIn('name="ICBM" content="41.3549516, 69.3108567"', html)
+        self.assertNotIn("UZ-TO", html)
+        self.assertIn("Тошкент, Юнусобод тумани", html)
+        for href in (
+            "https://go.2gis.com/ZarM1",
+            "https://maps.app.goo.gl/KBZqrHesEsAqRX5F9",
+            "https://yandex.uz/maps/-/CXeOi6mH",
+        ):
+            self.assertIn(f'href="{href}"', html)
+            self.assertRegex(html, rf'href="{re.escape(href)}"[^>]*rel="noopener noreferrer"')
+
+        ru_body, _lang = inject_lang_meta(html, "ru")
+        ru = _json_ld(ru_body)
+        clinic = _clinic(ru)
+        self.assertEqual(clinic["geo"]["latitude"], 41.3549516)
+        self.assertEqual(clinic["geo"]["longitude"], 69.3108567)
+        self.assertIn("https://maps.app.goo.gl/KBZqrHesEsAqRX5F9", clinic["hasMap"])
+        ru_crumb = next(node for node in ru["@graph"] if node["@type"] == "BreadcrumbList")
+        self.assertEqual(
+            [item["name"] for item in ru_crumb["itemListElement"]],
+            ["Главная", "Русская версия"],
+        )
+        self.assertEqual(ru_crumb["itemListElement"][1]["item"], "https://neuronmedical.uz/?lang=ru")
+
+        en_body, _lang = inject_lang_meta(html, "en")
+        en_crumb = next(node for node in _json_ld(en_body)["@graph"] if node["@type"] == "BreadcrumbList")
+        self.assertEqual(
+            [item["name"] for item in en_crumb["itemListElement"]],
+            ["Home", "English version"],
+        )
+        self.assertIn('name="geo.region" content="UZ-TK"', en_body)
+
+        uz_body, _lang = inject_lang_meta(html, "uz")
+        uz_crumb = next(node for node in _json_ld(uz_body)["@graph"] if node["@type"] == "BreadcrumbList")
+        self.assertEqual([item["name"] for item in uz_crumb["itemListElement"]], ["Bosh sahifa"])
+        self.assertEqual(uz_crumb["itemListElement"][0]["item"], "https://neuronmedical.uz/?lang=uz")
+
+        missing = (PROJECT_ROOT / "404.html").read_text(encoding="utf-8")
+        self.assertIn('"@type": "BreadcrumbList"', missing)
+        self.assertIn("Sahifa topilmadi", missing)
+        self.assertIn('name="geo.region" content="UZ-TK"', missing)
+
     def test_clinic_figures_offer_webp(self) -> None:
         html = (PROJECT_ROOT / "index.html").read_text(encoding="utf-8")
         clinic = Path(PROJECT_ROOT / "images" / "clinic")

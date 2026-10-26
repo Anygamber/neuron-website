@@ -49,6 +49,40 @@ def _swap(html: str, pattern: str, value: str, *, quote: bool = True) -> str:
     return updated
 
 
+_GEO_METAS = (
+    ("geo.region", "UZ-TK"),
+    ("geo.placename", "Tashkent"),
+    ("geo.position", "41.3549516;69.3108567"),
+    ("ICBM", "41.3549516, 69.3108567"),
+)
+
+
+def inject_geo(html: str) -> str:
+    """Keep the Tashkent clinic pin in the head for every language."""
+    missing: list[str] = []
+    for name, value in _GEO_METAS:
+        pattern = rf'(<meta\s+name="{re.escape(name)}"\s+content=")[^"]*(")'
+        if re.search(pattern, html, flags=re.IGNORECASE):
+            html = _swap(html, pattern, value)
+        else:
+            missing.append(
+                f'<meta name="{escape(name, quote=True)}" content="{escape(value, quote=True)}" />'
+            )
+    if not missing:
+        return html
+    block = "\n  ".join(missing)
+    updated, count = re.subn(
+        r'(<meta\s+name="theme-color"\s+content="[^"]*"\s*/?>)',
+        block + r"\n  \1",
+        html,
+        count=1,
+        flags=re.IGNORECASE,
+    )
+    if count:
+        return updated
+    return html.replace("</head>", f"  {block}\n</head>", 1)
+
+
 @lru_cache(maxsize=1)
 def load_schema() -> dict:
     data = json.loads(_SCHEMA_PATH.read_text(encoding="utf-8"))
@@ -187,5 +221,6 @@ def inject_lang_meta(html: str, lang: str) -> tuple[str, str]:
             value,
         )
     html = _swap(html, r'(<link\s+rel="canonical"\s+href=")[^"]*(")', url)
+    html = inject_geo(html)
     html = inject_schema(html, code)
     return html, html_lang
