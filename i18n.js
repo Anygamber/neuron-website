@@ -54,7 +54,7 @@
       "social.whatsapp": "WhatsApp",
       "social.telegramAria": "NeurON в Telegram — @neuronmedical_center",
       "social.facebookAria": "NeurON в Facebook",
-      "social.whatsappAria": "Написать в WhatsApp — +998 71 200-00-20",
+      "social.whatsappAria": "Написать в WhatsApp — +998 71 200 00 20",
       "lang.ruTitle": "Русский",
       "lang.uzTitle": "O‘zbek tili",
       "lang.enTitle": "English",
@@ -371,7 +371,7 @@
       "social.whatsapp": "WhatsApp",
       "social.telegramAria": "NeurON on Telegram — @neuronmedical_center",
       "social.facebookAria": "NeurON on Facebook",
-      "social.whatsappAria": "Message on WhatsApp — +998 71 200-00-20",
+      "social.whatsappAria": "Message on WhatsApp — +998 71 200 00 20",
       "lang.ruTitle": "Russian",
       "lang.uzTitle": "Uzbek",
       "lang.enTitle": "English",
@@ -684,7 +684,7 @@
       "social.whatsapp": "WhatsApp",
       "social.telegramAria": "NeurON Telegram — @neuronmedical_center",
       "social.facebookAria": "NeurON Facebook",
-      "social.whatsappAria": "WhatsApp orqali yozish — +998 71 200-00-20",
+      "social.whatsappAria": "WhatsApp orqali yozish — +998 71 200 00 20",
       "lang.ruTitle": "Rus tili",
       "lang.uzTitle": "O‘zbek tili",
       "lang.enTitle": "Ingliz tili",
@@ -1169,6 +1169,63 @@
     });
 
     applyMeta(lang);
+    applySchema(lang);
+  }
+
+  const DOCTOR_SLUGS = [
+    "burnashev",
+    "kim",
+    "alimov",
+    "hamrokulov",
+    "allarov",
+    "abdujapparov",
+    "muslimov"
+  ];
+
+  function applySchema(lang) {
+    const node = document.getElementById("neuron-schema-org");
+    if (!node) return;
+    let data;
+    try {
+      data = JSON.parse(node.textContent);
+    } catch (_) {
+      return;
+    }
+    if (!data || !Array.isArray(data["@graph"])) return;
+    const page = "https://neuronmedical.uz/?lang=" + lang;
+    const orgId = "https://neuronmedical.uz/#organization";
+    const questions = [1, 2, 3, 4].map((n) => ({
+      "@type": "Question",
+      name: t(lang, "faq.q" + n) || "",
+      acceptedAnswer: { "@type": "Answer", text: t(lang, "faq.a" + n) || "" }
+    }));
+    const physicians = DOCTOR_SLUGS.map((slug) => ({
+      "@type": "Physician",
+      "@id": "https://neuronmedical.uz/#doctor-" + slug,
+      name: t(lang, "doc." + slug + ".name") || "",
+      medicalSpecialty: t(lang, "doc." + slug + ".role") || "",
+      image: "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+      url: page + "#doctor-" + slug,
+      worksFor: { "@id": orgId }
+    }));
+    if (questions.some((q) => !q.name || !q.acceptedAnswer.text)) return;
+    if (physicians.some((p) => !p.name || !p.medicalSpecialty)) return;
+    const kept = data["@graph"].filter((item) => {
+      const type = item && item["@type"];
+      const types = Array.isArray(type) ? type : [type];
+      return types.indexOf("FAQPage") === -1 && types.indexOf("Physician") === -1;
+    });
+    data["@graph"] = kept.concat(
+      [{
+        "@type": "FAQPage",
+        "@id": "https://neuronmedical.uz/#faq",
+        inLanguage: lang,
+        url: page + "#faq",
+        mainEntity: questions
+      }],
+      physicians
+    );
+    node.textContent = JSON.stringify(data);
   }
 
   function setLang(lang, { pushUrl } = { pushUrl: true }) {

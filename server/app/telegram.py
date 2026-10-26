@@ -202,10 +202,10 @@ def _clinic_block(data: dict[str, Any] | None = None) -> list[str]:
     data = data or {}
     name = data.get("clinic_name") or "NeurON Medical Centre"
     location = data.get("clinic_location") or "Ташкент, Узбекистан"
-    phone = data.get("clinic_phone") or "+998 (71) 200-00-20"
+    phone = data.get("clinic_phone") or "+998 71 200 00 20"
     email = data.get("clinic_email") or "info@neuronmedical.uz"
     address = data.get("clinic_address") or (
-        "Ташкент, Юнусабадский район, махалля Отчопар-2, 3-й проезд Чинабад, дом 2"
+        "Ташкент, Юнусабад, Отчопар-2, 3-й проезд Чинабад, дом 2"
     )
     site = data.get("clinic_site_url") or "https://neuronmedical.uz/"
     return [

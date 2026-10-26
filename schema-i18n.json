@@ -1,0 +1,693 @@
+{
+  "source": "faq.* from i18n-seo.js; physician name and specialty from i18n-pages.js",
+  "default": "uz",
+  "graphs": {
+    "uz": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": [
+            "MedicalClinic",
+            "MedicalOrganization"
+          ],
+          "@id": "https://neuronmedical.uz/#organization",
+          "name": "NeurON Medical Centre",
+          "alternateName": [
+            "NeurON",
+            "Neuron Medical",
+            "Клиника NeurON"
+          ],
+          "url": "https://neuronmedical.uz/",
+          "logo": "https://neuronmedical.uz/NeurON-icon-circle.png",
+          "image": "https://neuronmedical.uz/NeurON-square-light.png",
+          "telephone": "+998 71 200 00 20",
+          "email": "info@neuronmedical.uz",
+          "priceRange": "$$",
+          "currenciesAccepted": "UZS",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Юнусабад, Отчопар-2, 3-й проезд Чинабад, дом 2",
+            "addressLocality": "Ташкент",
+            "addressCountry": "UZ"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 41.3667,
+            "longitude": 69.2881
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "https://schema.org/Monday",
+                "https://schema.org/Tuesday",
+                "https://schema.org/Wednesday",
+                "https://schema.org/Thursday",
+                "https://schema.org/Friday",
+                "https://schema.org/Saturday"
+              ],
+              "opens": "08:00",
+              "closes": "20:00"
+            }
+          ],
+          "areaServed": {
+            "@type": "City",
+            "name": "Ташкент"
+          },
+          "medicalSpecialty": [
+            "Neurosurgery",
+            "Neurology",
+            "PainManagement",
+            "Oncology",
+            "Diagnostic"
+          ],
+          "availableService": [
+            {
+              "@type": "MedicalProcedure",
+              "name": "Neurosurgery / Нейрохирургия Ташкент",
+              "description": "Brain and spine neurosurgery including neuro-oncology, vascular and spinal procedures."
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Neuro-oncology — brain tumor, meningioma, glioma, pituitary adenoma"
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Vascular neurosurgery — cerebral aneurysm, AVM, cavernoma"
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Spinal neurosurgery — disc herniation, microdiscectomy, stenosis, vertebroplasty"
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Functional neurosurgery — trigeminal neuralgia, microvascular decompression"
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Epilepsy surgery — drug-resistant epilepsy, epileptogenic focus"
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Pain Management — epidural block, RFA, COSMAN G4 / Cosman 4G"
+            }
+          ],
+          "sameAs": [
+            "https://t.me/neuronmedical_center",
+            "https://www.instagram.com/neuronmed.uz/",
+            "https://www.facebook.com/profile.php?id=61595203029647"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://neuronmedical.uz/#website",
+          "url": "https://neuronmedical.uz/",
+          "name": "NeurON Medical Centre",
+          "inLanguage": [
+            "uz",
+            "ru",
+            "en"
+          ],
+          "publisher": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://neuronmedical.uz/#faq",
+          "inLanguage": "uz",
+          "url": "https://neuronmedical.uz/?lang=uz#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Neyroxirurg kim va Toshkentda qachon murojaat qilish kerak?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Neyroxirurg — miya, orqa miya, umurtqa va periferik nerv kasalliklarini davolaydi. NeurON (Toshkent) ga miya o‘smasi, anevrizma, umurtqa churrasi, uch shoxli nerv nevralgiyasi va farmakorezistent epilepsiya bilan murojaat qilishadi."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "NeurON da neyroonologiya nimalarni o‘z ichiga oladi?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Neyroonologiya — meningioma, glioma, gipofiz adenomasi va boshqa markaziy asab tizimi o‘smalarini diagnostika va jarrohlik yo‘li bilan davolash (MRT reja, MSKT nazorat)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Og‘riq markazida surunkali og‘riq qanday davolanadi?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Og‘riqni davolash markazi: epidural va davolash blokadalari, COSMAN G4 da radiochastotali ablyatsiya, nevropatik og‘riqda impulsli radiochastota — ko‘pincha umumiy narkozsiz."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Klinikada epilepsiya jarrohligi bormi?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ha. Farmakorezistent epilepsiyada kompleks tekshiruvdan so‘ng epileptogen o‘choqni olib tashlash yoki ta’sir qilish ko‘rib chiqiladi."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-burnashev",
+          "name": "Burnashev Marsel Ildaovich",
+          "medicalSpecialty": "Oliy toifa shifokori · Neyroxirurg",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-burnashev",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-kim",
+          "name": "Kim Andrey Afonasevich",
+          "medicalSpecialty": "Oliy toifa shifokori · Neyroxirurg",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-kim",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-alimov",
+          "name": "Alimov Ijod Rustamovich",
+          "medicalSpecialty": "Tibbiyot fanlari doktori",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-alimov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-hamrokulov",
+          "name": "Xamrokulov Bekzod Baxodirovich",
+          "medicalSpecialty": "Tibbiyot fanlari nomzodi",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-hamrokulov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-allarov",
+          "name": "Allayarov Ulugbek Juraevich",
+          "medicalSpecialty": "Tibbiyot fanlari nomzodi",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-allarov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-abdujapparov",
+          "name": "Abdujapparov Salaymon Baxriddinovich",
+          "medicalSpecialty": "t.f.d., professor",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-abdujapparov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-muslimov",
+          "name": "Muslimov Ulugbek Yakubjanovich",
+          "medicalSpecialty": "Plastik jarroh",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-muslimov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        }
+      ]
+    },
+    "ru": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": [
+            "MedicalClinic",
+            "MedicalOrganization"
+          ],
+          "@id": "https://neuronmedical.uz/#organization",
+          "name": "NeurON Medical Centre",
+          "alternateName": [
+            "NeurON",
+            "Neuron Medical",
+            "Клиника NeurON"
+          ],
+          "url": "https://neuronmedical.uz/",
+          "logo": "https://neuronmedical.uz/NeurON-icon-circle.png",
+          "image": "https://neuronmedical.uz/NeurON-square-light.png",
+          "telephone": "+998 71 200 00 20",
+          "email": "info@neuronmedical.uz",
+          "priceRange": "$$",
+          "currenciesAccepted": "UZS",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Юнусабад, Отчопар-2, 3-й проезд Чинабад, дом 2",
+            "addressLocality": "Ташкент",
+            "addressCountry": "UZ"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 41.3667,
+            "longitude": 69.2881
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "https://schema.org/Monday",
+                "https://schema.org/Tuesday",
+                "https://schema.org/Wednesday",
+                "https://schema.org/Thursday",
+                "https://schema.org/Friday",
+                "https://schema.org/Saturday"
+              ],
+              "opens": "08:00",
+              "closes": "20:00"
+            }
+          ],
+          "areaServed": {
+            "@type": "City",
+            "name": "Ташкент"
+          },
+          "medicalSpecialty": [
+            "Neurosurgery",
+            "Neurology",
+            "PainManagement",
+            "Oncology",
+            "Diagnostic"
+          ],
+          "availableService": [
+            {
+              "@type": "MedicalProcedure",
+              "name": "Neurosurgery / Нейрохирургия Ташкент",
+              "description": "Brain and spine neurosurgery including neuro-oncology, vascular and spinal procedures."
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Neuro-oncology — brain tumor, meningioma, glioma, pituitary adenoma"
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Vascular neurosurgery — cerebral aneurysm, AVM, cavernoma"
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Spinal neurosurgery — disc herniation, microdiscectomy, stenosis, vertebroplasty"
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Functional neurosurgery — trigeminal neuralgia, microvascular decompression"
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Epilepsy surgery — drug-resistant epilepsy, epileptogenic focus"
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Pain Management — epidural block, RFA, COSMAN G4 / Cosman 4G"
+            }
+          ],
+          "sameAs": [
+            "https://t.me/neuronmedical_center",
+            "https://www.instagram.com/neuronmed.uz/",
+            "https://www.facebook.com/profile.php?id=61595203029647"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://neuronmedical.uz/#website",
+          "url": "https://neuronmedical.uz/",
+          "name": "NeurON Medical Centre",
+          "inLanguage": [
+            "uz",
+            "ru",
+            "en"
+          ],
+          "publisher": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://neuronmedical.uz/#faq",
+          "inLanguage": "ru",
+          "url": "https://neuronmedical.uz/?lang=ru#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Кто такой нейрохирург и когда обращаться в Ташкенте?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Нейрохирург — врач, который лечит заболевания головного и спинного мозга, позвоночника и периферических нервов. В NeurON (Ташкент) обращаются при опухоли головного мозга, аневризме, грыже позвоночника, невралгии тройничного нерва и фармакорезистентной эпилепсии."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Что включает нейроонкология в NeurON?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Нейроонкология — диагностика и хирургическое лечение опухолей: менингиома, глиома, аденома гипофиза и другие объёмные образования ЦНС с планированием по МРТ и МСКТ-контролем."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Как лечат хроническую боль в Центре боли?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Центр лечения боли предлагает эпидуральные и лечебные блокады, радиочастотную абляцию (РЧА) на COSMAN G4, импульсную радиочастотную терапию при нейропатической боли — часто без общего наркоза и с коротким восстановлением."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Делают ли в клинике хирургию эпилепсии?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Да. При фармакорезистентной эпилепсии рассматривается удаление или воздействие на эпилептогенный очаг после комплексного обследования нейрохирургом и неврологом."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-burnashev",
+          "name": "Бурнашев Марсель Ильдарович",
+          "medicalSpecialty": "Врач высшей категории · Нейрохирург",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-burnashev",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-kim",
+          "name": "Ким Андрей Афонасьевич",
+          "medicalSpecialty": "Врач высшей категории · Нейрохирург",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-kim",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-alimov",
+          "name": "Алимов Ижод Рустамович",
+          "medicalSpecialty": "Доктор медицинских наук",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-alimov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-hamrokulov",
+          "name": "Хамрокулов Бекзод Баходирович",
+          "medicalSpecialty": "Кандидат медицинских наук",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-hamrokulov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-allarov",
+          "name": "Аллаяров Улугбек Джураевич",
+          "medicalSpecialty": "Кандидат медицинских наук",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-allarov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-abdujapparov",
+          "name": "Абдужаппаров Сулаймон Бахриддинович",
+          "medicalSpecialty": "Д.м.н., профессор",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-abdujapparov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-muslimov",
+          "name": "Муслимов Улугбек Якубджанович",
+          "medicalSpecialty": "Пластический хирург",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-muslimov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        }
+      ]
+    },
+    "en": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": [
+            "MedicalClinic",
+            "MedicalOrganization"
+          ],
+          "@id": "https://neuronmedical.uz/#organization",
+          "name": "NeurON Medical Centre",
+          "alternateName": [
+            "NeurON",
+            "Neuron Medical",
+            "Клиника NeurON"
+          ],
+          "url": "https://neuronmedical.uz/",
+          "logo": "https://neuronmedical.uz/NeurON-icon-circle.png",
+          "image": "https://neuronmedical.uz/NeurON-square-light.png",
+          "telephone": "+998 71 200 00 20",
+          "email": "info@neuronmedical.uz",
+          "priceRange": "$$",
+          "currenciesAccepted": "UZS",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Юнусабад, Отчопар-2, 3-й проезд Чинабад, дом 2",
+            "addressLocality": "Ташкент",
+            "addressCountry": "UZ"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 41.3667,
+            "longitude": 69.2881
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "https://schema.org/Monday",
+                "https://schema.org/Tuesday",
+                "https://schema.org/Wednesday",
+                "https://schema.org/Thursday",
+                "https://schema.org/Friday",
+                "https://schema.org/Saturday"
+              ],
+              "opens": "08:00",
+              "closes": "20:00"
+            }
+          ],
+          "areaServed": {
+            "@type": "City",
+            "name": "Ташкент"
+          },
+          "medicalSpecialty": [
+            "Neurosurgery",
+            "Neurology",
+            "PainManagement",
+            "Oncology",
+            "Diagnostic"
+          ],
+          "availableService": [
+            {
+              "@type": "MedicalProcedure",
+              "name": "Neurosurgery / Нейрохирургия Ташкент",
+              "description": "Brain and spine neurosurgery including neuro-oncology, vascular and spinal procedures."
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Neuro-oncology — brain tumor, meningioma, glioma, pituitary adenoma"
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Vascular neurosurgery — cerebral aneurysm, AVM, cavernoma"
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Spinal neurosurgery — disc herniation, microdiscectomy, stenosis, vertebroplasty"
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Functional neurosurgery — trigeminal neuralgia, microvascular decompression"
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Epilepsy surgery — drug-resistant epilepsy, epileptogenic focus"
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Pain Management — epidural block, RFA, COSMAN G4 / Cosman 4G"
+            }
+          ],
+          "sameAs": [
+            "https://t.me/neuronmedical_center",
+            "https://www.instagram.com/neuronmed.uz/",
+            "https://www.facebook.com/profile.php?id=61595203029647"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://neuronmedical.uz/#website",
+          "url": "https://neuronmedical.uz/",
+          "name": "NeurON Medical Centre",
+          "inLanguage": [
+            "uz",
+            "ru",
+            "en"
+          ],
+          "publisher": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://neuronmedical.uz/#faq",
+          "inLanguage": "en",
+          "url": "https://neuronmedical.uz/?lang=en#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What does a neurosurgeon treat in Tashkent?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A neurosurgeon treats brain, spine and peripheral nerve disease. At NeurON (Tashkent) patients seek care for brain tumors, aneurysms, disc herniation, trigeminal neuralgia and drug-resistant epilepsy."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is neuro-oncology at NeurON?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Neuro-oncology covers diagnosis and surgery for meningioma, glioma, pituitary adenoma and other CNS tumors with MRI planning and MSCT control."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is chronic pain treated at the Pain Center?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pain Management includes epidural and therapeutic blocks, RFA on COSMAN G4, and PRF for neuropathic pain — often without general anesthesia."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you offer epilepsy surgery?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. For drug-resistant epilepsy we evaluate removal or modulation of the epileptogenic focus after multidisciplinary work-up."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-burnashev",
+          "name": "Marsel Ildarovich Burnashev",
+          "medicalSpecialty": "Highest category physician · Neurosurgeon",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-burnashev",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-kim",
+          "name": "Andrey Afonasyevich Kim",
+          "medicalSpecialty": "Highest category physician · Neurosurgeon",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-kim",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-alimov",
+          "name": "Izhod Rustamovich Alimov",
+          "medicalSpecialty": "Doctor of Medical Sciences",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-alimov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-hamrokulov",
+          "name": "Bekzod Bakhodirovich Khamrokulov",
+          "medicalSpecialty": "Candidate of Medical Sciences",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-hamrokulov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-allarov",
+          "name": "Ulugbek Juraevich Allayarov",
+          "medicalSpecialty": "Candidate of Medical Sciences",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-allarov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-abdujapparov",
+          "name": "Sulaymon Bakhriddinovich Abdujapparov",
+          "medicalSpecialty": "D.M.Sc., Professor",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-abdujapparov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-muslimov",
+          "name": "Ulugbek Yakubjanovich Muslimov",
+          "medicalSpecialty": "Plastic surgeon",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-muslimov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        }
+      ]
+    }
+  }
+}

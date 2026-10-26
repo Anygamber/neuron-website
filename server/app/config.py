@@ -104,9 +104,9 @@ def get_config() -> dict[str, str | int | bool]:
         "telegram_chat_id_masked": mask_secret(chat_id, 2),
         "clinic_name": os.environ.get("CLINIC_NAME", "").strip() or "NeurON Medical Centre",
         "clinic_location": os.environ.get("CLINIC_LOCATION", "").strip() or "Ташкент, Узбекистан",
-        "clinic_phone": os.environ.get("CLINIC_PHONE", "").strip() or "+998 (71) 200-00-20",
+        "clinic_phone": os.environ.get("CLINIC_PHONE", "").strip() or "+998 71 200 00 20",
         "clinic_email": os.environ.get("CLINIC_EMAIL", "").strip() or "info@neuronmedical.uz",
         "clinic_address": os.environ.get("CLINIC_ADDRESS", "").strip()
-        or "Ташкент, Юнусабадский район, махалля Отчопар-2, 3-й проезд Чинабад, дом 2",
+        or "Ташкент, Юнусабад, Отчопар-2, 3-й проезд Чинабад, дом 2",
         "clinic_site_url": os.environ.get("CLINIC_SITE_URL", "").strip() or "https://neuronmedical.uz/",
     }
