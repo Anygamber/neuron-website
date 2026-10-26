@@ -49,12 +49,8 @@ window.NEURON_I18N_EXTRA = {
     "doc.muslimov.t1": "Пластика",
     "doc.muslimov.t2": "Лазерные методики",
     "doc.muslimov.t3": "15+ лет",
-<<<<<<< HEAD
     "doctors.more": "Посмотреть всех специалистов",
     "doctors.less": "Свернуть",
-=======
-    "doctors.more": "Посмотреть остальных специалистов",
->>>>>>> cursor/seo-stage1-hreflang-8a02
     "doc.abdurahmanov.name": "Абдурахманов Отабек Мухамматсолиевич",
     "doc.abdurahmanov.role": "Гематолог-трансфузиолог",
     "doc.abdurahmanov.bio": "Ташкентский педиатрический медицинский институт. Стаж 15 лет.",
@@ -399,10 +395,7 @@ window.NEURON_I18N_EXTRA = {
     "doc.muslimov.t2": "Lazer usullari",
     "doc.muslimov.t3": "15+ yil",
     "doctors.more": "Boshqa mutaxassislarni ko‘rish",
-<<<<<<< HEAD
     "doctors.less": "Yopish",
-=======
->>>>>>> cursor/seo-stage1-hreflang-8a02
     "doc.abdurahmanov.name": "Abdurahmanov Otabek Muhammatsolievich",
     "doc.abdurahmanov.role": "Gematolog-transfuziolog",
     "doc.abdurahmanov.bio": "Toshkent pediatriya tibbiyot instituti. Staj 15 yil.",
@@ -746,12 +739,8 @@ window.NEURON_I18N_EXTRA = {
     "doc.muslimov.t1": "Plastic surgery",
     "doc.muslimov.t2": "Laser techniques",
     "doc.muslimov.t3": "15+ years",
-<<<<<<< HEAD
     "doctors.more": "View all specialists",
     "doctors.less": "Collapse",
-=======
-    "doctors.more": "View other specialists",
->>>>>>> cursor/seo-stage1-hreflang-8a02
     "doc.abdurahmanov.name": "Otabek Muhammatsolievich Abdurahmanov",
     "doc.abdurahmanov.role": "Hematologist-transfusiologist",
     "doc.abdurahmanov.bio": "Tashkent Pediatric Medical Institute. 15 years of experience.",
