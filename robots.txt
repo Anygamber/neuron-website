@@ -6,6 +6,7 @@ Disallow: /api/v1/analytics/
 Disallow: /api/
 Disallow: /server/
 Disallow: /bot/
+Disallow: /plans/
 
 # AI search / GEO crawlers — allow citation indexing
 User-agent: GPTBot

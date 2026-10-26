@@ -544,6 +544,12 @@ def create_app() -> FastAPI:
             target = "/?" + request.url.query if request.url.query else "/"
             return RedirectResponse(url=target, status_code=301)
 
+        @application.api_route("/plans", methods=["GET", "HEAD"], include_in_schema=False)
+        @application.api_route("/plans/{rest:path}", methods=["GET", "HEAD"], include_in_schema=False)
+        def private_media_plan(rest: str = ""):
+            """Team files under /plans stay in the repo and off the public site."""
+            return Response(status_code=404)
+
         application.mount(
             "/",
             StaticFiles(directory=str(PROJECT_ROOT), html=True),
