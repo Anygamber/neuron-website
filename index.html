@@ -2640,6 +2640,61 @@
       gap: var(--space-2);
     }
 
+    .doctors-more {
+      margin-top: var(--space-3);
+    }
+
+    .doctors-more > summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: fit-content;
+      max-width: 100%;
+      margin-inline: auto;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--paradiso-line);
+      background: var(--bg-elevated);
+      color: var(--paradiso);
+      font: inherit;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: border-color var(--duration) ease, box-shadow var(--duration) ease;
+    }
+
+    .doctors-more > summary::-webkit-details-marker { display: none; }
+
+    .doctors-more > summary::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(45deg) translateY(-2px);
+      flex-shrink: 0;
+    }
+
+    .doctors-more[open] > summary::after {
+      transform: rotate(225deg) translateY(-1px);
+    }
+
+    .doctors-more > summary:hover {
+      border-color: var(--paradiso);
+      box-shadow: var(--shadow-card);
+    }
+
+    .doctors-more > summary:focus-visible {
+      outline: 2px solid var(--paradiso);
+      outline-offset: 3px;
+    }
+
+    .doctors-more > .doctors-grid {
+      margin-top: var(--space-2);
+    }
+
     .doctor {
       position: relative;
       display: flex;
@@ -6301,6 +6356,459 @@
           </article>
         </div>
 
+        <details class="doctors-more">
+          <summary data-i18n="doctors.more">Посмотреть остальных специалистов</summary>
+          <div class="doctors-grid">
+            <article class="doctor reveal fade-item" id="doctor-abdurahmanov">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Абдурахманов Отабек Мухамматсолиевич" data-i18n-alt="doc.abdurahmanov.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.abdurahmanov.name">Абдурахманов Отабек Мухамматсолиевич</h3>
+              <div class="doctor-role" data-i18n="doc.abdurahmanov.role">Гематолог-трансфузиолог</div>
+              <p data-i18n="doc.abdurahmanov.bio">Ташкентский педиатрический медицинский институт. Стаж 15 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.abdurahmanov.t1">Гемотрансфузия</span>
+                <span data-i18n="doc.abdurahmanov.t2">15 лет</span>
+                <span data-i18n="doc.abdurahmanov.t3">I категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-boydavlatov">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Бойдавлатов Умурзок Аликул угли" data-i18n-alt="doc.boydavlatov.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.boydavlatov.name">Бойдавлатов Умурзок Аликул угли</h3>
+              <div class="doctor-role" data-i18n="doc.boydavlatov.role">Дежурный врач-хирург</div>
+              <p data-i18n="doc.boydavlatov.bio">Ташкентская медицинская академия. Стаж 3 года.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.boydavlatov.t1">Хирургия</span>
+                <span data-i18n="doc.boydavlatov.t2">3 года</span>
+                <span data-i18n="doc.boydavlatov.t3">Магистр</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-abdullaev">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Абдуллаев Наби Кулдошевич" data-i18n-alt="doc.abdullaev.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.abdullaev.name">Абдуллаев Наби Кулдошевич</h3>
+              <div class="doctor-role" data-i18n="doc.abdullaev.role">Врач-нейрохирург (сосудистый)</div>
+              <p data-i18n="doc.abdullaev.bio">Самаркандский государственный медицинский институт. Стаж 9 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.abdullaev.t1">Сосудистая НХ</span>
+                <span data-i18n="doc.abdullaev.t2">9 лет</span>
+                <span data-i18n="doc.abdullaev.t3">II категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-gofurova">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Гофурова Нодира Фатхуллаевна" data-i18n-alt="doc.gofurova.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.gofurova.name">Гофурова Нодира Фатхуллаевна</h3>
+              <div class="doctor-role" data-i18n="doc.gofurova.role">Врач-невролог</div>
+              <p data-i18n="doc.gofurova.bio">Ташкентский педиатрический медицинский институт. Стаж 20 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.gofurova.t1">Неврология</span>
+                <span data-i18n="doc.gofurova.t2">20 лет</span>
+                <span data-i18n="doc.gofurova.t3">II категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-zaremba">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Заремба Александр Евгеньевич" data-i18n-alt="doc.zaremba.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.zaremba.name">Заремба Александр Евгеньевич</h3>
+              <div class="doctor-role" data-i18n="doc.zaremba.role">Врач-нейрохирург</div>
+              <p data-i18n="doc.zaremba.bio">Ташкентский педиатрический медицинский институт / Республиканский нейрохирургический центр. Стаж 18 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.zaremba.t1">Нейрохирургия</span>
+                <span data-i18n="doc.zaremba.t2">18 лет</span>
+                <span data-i18n="doc.zaremba.t3">Магистр</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-ilhamov">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Илхамов Дилшод Фархадович" data-i18n-alt="doc.ilhamov.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.ilhamov.name">Илхамов Дилшод Фархадович</h3>
+              <div class="doctor-role" data-i18n="doc.ilhamov.role">Врач-радиолог</div>
+              <p data-i18n="doc.ilhamov.bio">Ташкентская медицинская академия. Стаж 15 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.ilhamov.t1">Радиология</span>
+                <span data-i18n="doc.ilhamov.t2">15 лет</span>
+                <span data-i18n="doc.ilhamov.t3">I категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-islomov">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Исломов Одил Эргашевич" data-i18n-alt="doc.islomov.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.islomov.name">Исломов Одил Эргашевич</h3>
+              <div class="doctor-role" data-i18n="doc.islomov.role">Дежурный врач анестезиолог-реаниматолог</div>
+              <p data-i18n="doc.islomov.bio">Ташкентский педиатрический медицинский институт. Стаж 15 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.islomov.t1">Анестезиология</span>
+                <span data-i18n="doc.islomov.t2">15 лет</span>
+                <span data-i18n="doc.islomov.t3">I категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-ishmukhamedov-sadulla">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Ишмухамедов Саъдулла Нигматжонович" data-i18n-alt="doc.ishmukhamedov-sadulla.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.ishmukhamedov-sadulla.name">Ишмухамедов Саъдулла Нигматжонович</h3>
+              <div class="doctor-role" data-i18n="doc.ishmukhamedov-sadulla.role">Врач-нейрохирург</div>
+              <p data-i18n="doc.ishmukhamedov-sadulla.bio">Первый Ташкентский государственный медицинский институт / Республиканский научный центр экстренной медицинской помощи. Стаж 44 года.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.ishmukhamedov-sadulla.t1">Нейрохирургия</span>
+                <span data-i18n="doc.ishmukhamedov-sadulla.t2">44 года</span>
+                <span data-i18n="doc.ishmukhamedov-sadulla.t3">Кандидат наук</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-ishmukhamedov-habibullo">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Ишмухамедов Хабибулло Файзуллаевич" data-i18n-alt="doc.ishmukhamedov-habibullo.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.ishmukhamedov-habibullo.name">Ишмухамедов Хабибулло Файзуллаевич</h3>
+              <div class="doctor-role" data-i18n="doc.ishmukhamedov-habibullo.role">Врач-нейрохирург</div>
+              <p data-i18n="doc.ishmukhamedov-habibullo.bio">Первый Ташкентский государственный медицинский институт / Республиканский научный центр экстренной медицинской помощи. Стаж 10 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.ishmukhamedov-habibullo.t1">Нейрохирургия</span>
+                <span data-i18n="doc.ishmukhamedov-habibullo.t2">10 лет</span>
+                <span data-i18n="doc.ishmukhamedov-habibullo.t3">II категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-karimova">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Каримова Гулнора Вагизовна" data-i18n-alt="doc.karimova.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.karimova.name">Каримова Гулнора Вагизовна</h3>
+              <div class="doctor-role" data-i18n="doc.karimova.role">Врач функциональной диагностики (ЭНМГ)</div>
+              <p data-i18n="doc.karimova.bio">Ташкентская медицинская академия / Национальный медико-хирургический центр. Стаж 15 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.karimova.t1">ЭНМГ</span>
+                <span data-i18n="doc.karimova.t2">15 лет</span>
+                <span data-i18n="doc.karimova.t3">I категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-mardonova">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Мардонова Хилола Жахонгировна" data-i18n-alt="doc.mardonova.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.mardonova.name">Мардонова Хилола Жахонгировна</h3>
+              <div class="doctor-role" data-i18n="doc.mardonova.role">Врач-невролог</div>
+              <p data-i18n="doc.mardonova.bio">Бухарский государственный медицинский институт. Стаж 23 года.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.mardonova.t1">Неврология</span>
+                <span data-i18n="doc.mardonova.t2">23 года</span>
+                <span data-i18n="doc.mardonova.t3">I категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-mahamadiev">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Махамадиев Жавохир Жахонгир угли" data-i18n-alt="doc.mahamadiev.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.mahamadiev.name">Махамадиев Жавохир Жахонгир угли</h3>
+              <div class="doctor-role" data-i18n="doc.mahamadiev.role">Врач анестезиолог-реаниматолог</div>
+              <p data-i18n="doc.mahamadiev.bio">Ташкентский педиатрический медицинский институт. Стаж 4 года.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.mahamadiev.t1">Реанимация</span>
+                <span data-i18n="doc.mahamadiev.t2">4 года</span>
+                <span data-i18n="doc.mahamadiev.t3">Бакалавр</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-muminov">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Муминов Зухриддин Вахабович" data-i18n-alt="doc.muminov.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.muminov.name">Муминов Зухриддин Вахабович</h3>
+              <div class="doctor-role" data-i18n="doc.muminov.role">Врач анестезиолог-реаниматолог, заведующий операционным блоком</div>
+              <p data-i18n="doc.muminov.bio">Ташкентский государственный медицинский институт. Стаж 15 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.muminov.t1">Оперблок</span>
+                <span data-i18n="doc.muminov.t2">15 лет</span>
+                <span data-i18n="doc.muminov.t3">II категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-murodova">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Муродова Дилором Субхановна" data-i18n-alt="doc.murodova.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.murodova.name">Муродова Дилором Субхановна</h3>
+              <div class="doctor-role" data-i18n="doc.murodova.role">Заведующая отделением, врач-нейрохирург</div>
+              <p data-i18n="doc.murodova.bio">Самаркандский государственный медицинский университет / Ташкентский институт усовершенствования врачей. Стаж 18 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.murodova.t1">Нейрохирургия</span>
+                <span data-i18n="doc.murodova.t2">18 лет</span>
+                <span data-i18n="doc.murodova.t3">PhD</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-nadjabov">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Наджабов Газамфар Алиевич" data-i18n-alt="doc.nadjabov.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.nadjabov.name">Наджабов Газамфар Алиевич</h3>
+              <div class="doctor-role" data-i18n="doc.nadjabov.role">Врач-радиолог</div>
+              <p data-i18n="doc.nadjabov.bio">Ташкентский педиатрический медицинский институт. Стаж 10 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.nadjabov.t1">Радиология</span>
+                <span data-i18n="doc.nadjabov.t2">10 лет</span>
+                <span data-i18n="doc.nadjabov.t3">I категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-rahimov">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Рахимов Авазбек Салимжон угли" data-i18n-alt="doc.rahimov.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.rahimov.name">Рахимов Авазбек Салимжон угли</h3>
+              <div class="doctor-role" data-i18n="doc.rahimov.role">Дежурный нейрохирург</div>
+              <p data-i18n="doc.rahimov.bio">Андижанский государственный медицинский институт / Ташкентская медицинская академия. Стаж 6 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.rahimov.t1">Нейрохирургия</span>
+                <span data-i18n="doc.rahimov.t2">6 лет</span>
+                <span data-i18n="doc.rahimov.t3">I категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-rahmankulov">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Рахманкулов Камил Худайкулович" data-i18n-alt="doc.rahmankulov.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.rahmankulov.name">Рахманкулов Камил Худайкулович</h3>
+              <div class="doctor-role" data-i18n="doc.rahmankulov.role">Дежурный врач анестезиолог-реаниматолог</div>
+              <p data-i18n="doc.rahmankulov.bio">Первый Ташкентский государственный медицинский институт. Стаж 25 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.rahmankulov.t1">Анестезиология</span>
+                <span data-i18n="doc.rahmankulov.t2">25 лет</span>
+                <span data-i18n="doc.rahmankulov.t3">Высшая категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-rahmatullaeva">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Рахматуллаева Доно Салохитдиновна" data-i18n-alt="doc.rahmatullaeva.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.rahmatullaeva.name">Рахматуллаева Доно Салохитдиновна</h3>
+              <div class="doctor-role" data-i18n="doc.rahmatullaeva.role">Врач-офтальмолог</div>
+              <p data-i18n="doc.rahmatullaeva.bio">Первый Ташкентский государственный медицинский институт. Стаж 30 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.rahmatullaeva.t1">Офтальмология</span>
+                <span data-i18n="doc.rahmatullaeva.t2">30 лет</span>
+                <span data-i18n="doc.rahmatullaeva.t3">Высшая категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-sobirov">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Собиров Акбар Бахромбек угли" data-i18n-alt="doc.sobirov.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.sobirov.name">Собиров Акбар Бахромбек угли</h3>
+              <div class="doctor-role" data-i18n="doc.sobirov.role">Дежурный врач анестезиолог-реаниматолог</div>
+              <p data-i18n="doc.sobirov.bio">Каракалпакский медицинский институт / Центр повышения квалификации медицинских работников. Стаж 4 года.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.sobirov.t1">Анестезиология</span>
+                <span data-i18n="doc.sobirov.t2">4 года</span>
+                <span data-i18n="doc.sobirov.t3">Бакалавр</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-solijonov">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Солижонов Улугбек Маъруфжонович" data-i18n-alt="doc.solijonov.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.solijonov.name">Солижонов Улугбек Маъруфжонович</h3>
+              <div class="doctor-role" data-i18n="doc.solijonov.role">Врач-радиолог</div>
+              <p data-i18n="doc.solijonov.bio">Ташкентская медицинская академия. Стаж 8 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.solijonov.t1">Радиология</span>
+                <span data-i18n="doc.solijonov.t2">8 лет</span>
+                <span data-i18n="doc.solijonov.t3">II категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-ten">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Тен Владимир Денисович" data-i18n-alt="doc.ten.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.ten.name">Тен Владимир Денисович</h3>
+              <div class="doctor-role" data-i18n="doc.ten.role">Врач-нейрохирург</div>
+              <p data-i18n="doc.ten.bio">Ташкентская медицинская академия. Стаж 15 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.ten.t1">Нейрохирургия</span>
+                <span data-i18n="doc.ten.t2">15 лет</span>
+                <span data-i18n="doc.ten.t3">II категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-teshaboeva">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Тешабоева Махсуда Абдумажидовна" data-i18n-alt="doc.teshaboeva.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.teshaboeva.name">Тешабоева Махсуда Абдумажидовна</h3>
+              <div class="doctor-role" data-i18n="doc.teshaboeva.role">Дежурный врач анестезиолог-реаниматолог</div>
+              <p data-i18n="doc.teshaboeva.bio">Первый Ташкентский государственный медицинский институт. Стаж 20 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.teshaboeva.t1">Анестезиология</span>
+                <span data-i18n="doc.teshaboeva.t2">20 лет</span>
+                <span data-i18n="doc.teshaboeva.t3">Высшая категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-tillaeva">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Тиллаева Назокат Илхамовна" data-i18n-alt="doc.tillaeva.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.tillaeva.name">Тиллаева Назокат Илхамовна</h3>
+              <div class="doctor-role" data-i18n="doc.tillaeva.role">Заведующая лабораторией, врач</div>
+              <p data-i18n="doc.tillaeva.bio">Второй Ташкентский государственный медицинский институт / Республиканский научный центр экстренной медицинской помощи. Стаж 20 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.tillaeva.t1">Лаборатория</span>
+                <span data-i18n="doc.tillaeva.t2">20 лет</span>
+                <span data-i18n="doc.tillaeva.t3">II категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-ubaydullaev">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Убайдуллаев Элбек Амондулла угли" data-i18n-alt="doc.ubaydullaev.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.ubaydullaev.name">Убайдуллаев Элбек Амондулла угли</h3>
+              <div class="doctor-role" data-i18n="doc.ubaydullaev.role">Врач-нейрохирург</div>
+              <p data-i18n="doc.ubaydullaev.bio">Бухарский государственный медицинский институт / Ташкентская медицинская академия. Стаж 13 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.ubaydullaev.t1">Нейрохирургия</span>
+                <span data-i18n="doc.ubaydullaev.t2">13 лет</span>
+                <span data-i18n="doc.ubaydullaev.t3">II категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-urunbaev">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Урунбаев Маъруф Махаматжонович" data-i18n-alt="doc.urunbaev.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.urunbaev.name">Урунбаев Маъруф Махаматжонович</h3>
+              <div class="doctor-role" data-i18n="doc.urunbaev.role">Врач-нейрохирург</div>
+              <p data-i18n="doc.urunbaev.bio">Первый Ташкентский государственный медицинский институт / Ташкентская медицинская академия. Стаж 12 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.urunbaev.t1">Нейрохирургия</span>
+                <span data-i18n="doc.urunbaev.t2">12 лет</span>
+                <span data-i18n="doc.urunbaev.t3">I категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-halibaeva">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Халибаева Гузал Батировна" data-i18n-alt="doc.halibaeva.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.halibaeva.name">Халибаева Гузал Батировна</h3>
+              <div class="doctor-role" data-i18n="doc.halibaeva.role">Врач-радиолог</div>
+              <p data-i18n="doc.halibaeva.bio">Ташкентская медицинская академия. Стаж 15 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.halibaeva.t1">Радиология</span>
+                <span data-i18n="doc.halibaeva.t2">15 лет</span>
+                <span data-i18n="doc.halibaeva.t3">Высшая категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-halimbaeva">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Халимбаева Мархабо Азимджановна" data-i18n-alt="doc.halimbaeva.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.halimbaeva.name">Халимбаева Мархабо Азимджановна</h3>
+              <div class="doctor-role" data-i18n="doc.halimbaeva.role">Главный врач, кардиолог</div>
+              <p data-i18n="doc.halimbaeva.bio">Первый Ташкентский государственный медицинский институт / Ташкентская медицинская академия. Стаж 30 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.halimbaeva.t1">Кардиология</span>
+                <span data-i18n="doc.halimbaeva.t2">30 лет</span>
+                <span data-i18n="doc.halimbaeva.t3">I категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-hasanov">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Хасанов Хамдам Комилжонович" data-i18n-alt="doc.hasanov.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.hasanov.name">Хасанов Хамдам Комилжонович</h3>
+              <div class="doctor-role" data-i18n="doc.hasanov.role">Дежурный врач-хирург</div>
+              <p data-i18n="doc.hasanov.bio">Ташкентская медицинская академия. Стаж 22 года.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.hasanov.t1">Хирургия</span>
+                <span data-i18n="doc.hasanov.t2">22 года</span>
+                <span data-i18n="doc.hasanov.t3">I категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-hojalepesova">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Хожалепесова Мехрибан Атабековна" data-i18n-alt="doc.hojalepesova.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.hojalepesova.name">Хожалепесова Мехрибан Атабековна</h3>
+              <div class="doctor-role" data-i18n="doc.hojalepesova.role">Дежурный онколог-хирург</div>
+              <p data-i18n="doc.hojalepesova.bio">Каракалпакский медицинский институт / Ташкентская медицинская академия. Стаж 3 года.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.hojalepesova.t1">Онкохирургия</span>
+                <span data-i18n="doc.hojalepesova.t2">3 года</span>
+                <span data-i18n="doc.hojalepesova.t3">Магистр</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-husniddinov">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Хусниддинов Нуриддин Хусниддинович" data-i18n-alt="doc.husniddinov.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.husniddinov.name">Хусниддинов Нуриддин Хусниддинович</h3>
+              <div class="doctor-role" data-i18n="doc.husniddinov.role">Заведующий ОАРИТ (реанимацией), реаниматолог</div>
+              <p data-i18n="doc.husniddinov.bio">Ташкентская медицинская академия. Стаж 12 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.husniddinov.t1">ОАРИТ</span>
+                <span data-i18n="doc.husniddinov.t2">12 лет</span>
+                <span data-i18n="doc.husniddinov.t3">II категория</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-shomuratov">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Шомуратов Зокир Шокирович" data-i18n-alt="doc.shomuratov.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.shomuratov.name">Шомуратов Зокир Шокирович</h3>
+              <div class="doctor-role" data-i18n="doc.shomuratov.role">Дежурный врач-нейрохирург</div>
+              <p data-i18n="doc.shomuratov.bio">Ташкентская медицинская академия. Стаж 2 года.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.shomuratov.t1">Нейрохирургия</span>
+                <span data-i18n="doc.shomuratov.t2">2 года</span>
+                <span data-i18n="doc.shomuratov.t3">Магистр</span>
+              </div>
+            </article>
+
+            <article class="doctor reveal fade-item" id="doctor-egamnazarova">
+              <div class="doctor-avatar">
+                <img src="images/doctors/placeholder.jpg" alt="Эгамназарова Зулайхо Равшановна" data-i18n-alt="doc.egamnazarova.name" width="80" height="80" loading="lazy" decoding="async" />
+              </div>
+              <h3 data-i18n="doc.egamnazarova.name">Эгамназарова Зулайхо Равшановна</h3>
+              <div class="doctor-role" data-i18n="doc.egamnazarova.role">Врач-невролог</div>
+              <p data-i18n="doc.egamnazarova.bio">Андижанский государственный медицинский институт. Стаж 7 лет.</p>
+              <div class="doctor-tags">
+                <span data-i18n="doc.egamnazarova.t1">Неврология</span>
+                <span data-i18n="doc.egamnazarova.t2">7 лет</span>
+                <span data-i18n="doc.egamnazarova.t3">Повышение квалификации</span>
+              </div>
+            </article>
+          </div>
+        </details>
+
         <div class="team-banner reveal fade-item">
           <figure>
             <picture>
@@ -6882,10 +7390,10 @@
     </div>
   </div>
 
-  <script src="i18n-pages.js?v=20261019"></script>
+  <script src="i18n-pages.js?v=20261026"></script>
   <script src="i18n-prices.js"></script>
   <script src="i18n-seo.js"></script>
-  <script src="i18n.js?v=20261020"></script>
+  <script src="i18n.js?v=20261026"></script>
   <script src="fx-usd.js?v=20261017b"></script>
   <script src="live-panel.js?v=20261019b"></script>
   <script>
@@ -6938,7 +7446,39 @@ window.NEURON_PRICES = {"updated":"09.09.2026","currency":"сум","categories":
     { id: "doctor-hamrokulov", nameKey: "doc.hamrokulov.name", roleKey: "doc.hamrokulov.role", text: "дегенеративные заболевания позвоночника Xamrokulov Bekzod" },
     { id: "doctor-allarov", nameKey: "doc.allarov.name", roleKey: "doc.allarov.role", text: "лапароскопическая хирургия laparoskopiya Allayarov Ulugbek" },
     { id: "doctor-abdujapparov", nameKey: "doc.abdujapparov.name", roleKey: "doc.abdujapparov.role", text: "лапароскопическая онкохирургия онкопроктология Abdujapparov Salaymon" },
-    { id: "doctor-muslimov", nameKey: "doc.muslimov.name", roleKey: "doc.muslimov.role", text: "пластическая хирургия лазер plastika Muslimov Ulugbek" }
+    { id: "doctor-muslimov", nameKey: "doc.muslimov.name", roleKey: "doc.muslimov.role", text: "пластическая хирургия лазер plastika Muslimov Ulugbek" },
+    { id: "doctor-abdurahmanov", nameKey: "doc.abdurahmanov.name", roleKey: "doc.abdurahmanov.role", text: "Гематолог-трансфузиолог Abdurahmanov Otabek Muhammatsolievich Otabek Muhammatsolievich Abdurahmanov" },
+    { id: "doctor-boydavlatov", nameKey: "doc.boydavlatov.name", roleKey: "doc.boydavlatov.role", text: "Дежурный врач-хирург Boydavlatov Umurzok Aliqul o‘g‘li Umurzok Aliqul ugli Boydavlatov" },
+    { id: "doctor-abdullaev", nameKey: "doc.abdullaev.name", roleKey: "doc.abdullaev.role", text: "Врач-нейрохирург (сосудистый) Abdullaev Nabi Kuldoshevich Nabi Kuldoshevich Abdullaev" },
+    { id: "doctor-gofurova", nameKey: "doc.gofurova.name", roleKey: "doc.gofurova.role", text: "Врач-невролог Gofurova Nodira Fatxullaeva Nodira Fatkhullaeva Gofurova" },
+    { id: "doctor-zaremba", nameKey: "doc.zaremba.name", roleKey: "doc.zaremba.role", text: "Врач-нейрохирург Zaremba Aleksandr Evgenevich Aleksandr Evgenevich Zaremba" },
+    { id: "doctor-ilhamov", nameKey: "doc.ilhamov.name", roleKey: "doc.ilhamov.role", text: "Врач-радиолог Ilxamov Dilshod Farxadovich Dilshod Farkhadovich Ilkhamov" },
+    { id: "doctor-islomov", nameKey: "doc.islomov.name", roleKey: "doc.islomov.role", text: "Дежурный врач анестезиолог-реаниматолог Islomov Odil Ergashevich Odil Ergashevich Islomov" },
+    { id: "doctor-ishmukhamedov-sadulla", nameKey: "doc.ishmukhamedov-sadulla.name", roleKey: "doc.ishmukhamedov-sadulla.role", text: "Врач-нейрохирург Ishmuhamedov Sa‘dulla Nigmatjonovich Sadulla Nigmatjonovich Ishmukhamedov" },
+    { id: "doctor-ishmukhamedov-habibullo", nameKey: "doc.ishmukhamedov-habibullo.name", roleKey: "doc.ishmukhamedov-habibullo.role", text: "Врач-нейрохирург Ishmuhamedov Habibullo Fayzullaevich Habibullo Fayzullaevich Ishmukhamedov" },
+    { id: "doctor-karimova", nameKey: "doc.karimova.name", roleKey: "doc.karimova.role", text: "Врач функциональной диагностики (ЭНМГ) Karimova Gulnora Vagizovna Gulnora Vagizovna Karimova" },
+    { id: "doctor-mardonova", nameKey: "doc.mardonova.name", roleKey: "doc.mardonova.role", text: "Врач-невролог Mardonova Xilola Jahongirovna Khilola Jahongirovna Mardonova" },
+    { id: "doctor-mahamadiev", nameKey: "doc.mahamadiev.name", roleKey: "doc.mahamadiev.role", text: "Врач анестезиолог-реаниматолог Maxamadiev Javohir Jahongir o‘g‘li Javokhir Jahongir ugli Makhamadiev" },
+    { id: "doctor-muminov", nameKey: "doc.muminov.name", roleKey: "doc.muminov.role", text: "Врач анестезиолог-реаниматолог, заведующий операционным блоком Muminov Zuxriddin Vaxabovich Zukhriddin Vakhabovich Muminov" },
+    { id: "doctor-murodova", nameKey: "doc.murodova.name", roleKey: "doc.murodova.role", text: "Заведующая отделением, врач-нейрохирург Murodova Dilorom Subxonovna Dilorom Subkhanovna Murodova" },
+    { id: "doctor-nadjabov", nameKey: "doc.nadjabov.name", roleKey: "doc.nadjabov.role", text: "Врач-радиолог Najabov Gazamfar Alievich Gazamfar Alievich Najabov" },
+    { id: "doctor-rahimov", nameKey: "doc.rahimov.name", roleKey: "doc.rahimov.role", text: "Дежурный нейрохирург Rahimov Avazbek Salimjon o‘g‘li Avazbek Salimjon ugli Rakhimov" },
+    { id: "doctor-rahmankulov", nameKey: "doc.rahmankulov.name", roleKey: "doc.rahmankulov.role", text: "Дежурный врач анестезиолог-реаниматолог Rahmankulov Kamil Xudayqulovich Kamil Khudaykulovich Rakhmankulov" },
+    { id: "doctor-rahmatullaeva", nameKey: "doc.rahmatullaeva.name", roleKey: "doc.rahmatullaeva.role", text: "Врач-офтальмолог Rahmatullaeva Dono Saloxitdinovna Dono Salokhitdinovna Rakhmatullaeva" },
+    { id: "doctor-sobirov", nameKey: "doc.sobirov.name", roleKey: "doc.sobirov.role", text: "Дежурный врач анестезиолог-реаниматолог Sobirov Akbar Bahrombek o‘g‘li Akbar Bakhrombek ugli Sobirov" },
+    { id: "doctor-solijonov", nameKey: "doc.solijonov.name", roleKey: "doc.solijonov.role", text: "Врач-радиолог Solijonov Ulugbek Ma‘rufjonovich Ulugbek Marufjonovich Solijonov" },
+    { id: "doctor-ten", nameKey: "doc.ten.name", roleKey: "doc.ten.role", text: "Врач-нейрохирург Ten Vladimir Denisovich Vladimir Denisovich Ten" },
+    { id: "doctor-teshaboeva", nameKey: "doc.teshaboeva.name", roleKey: "doc.teshaboeva.role", text: "Дежурный врач анестезиолог-реаниматолог Teshaboeva Mahsuda Abdumajidovna Makhsuda Abdumajidovna Teshaboeva" },
+    { id: "doctor-tillaeva", nameKey: "doc.tillaeva.name", roleKey: "doc.tillaeva.role", text: "Заведующая лабораторией, врач Tillayeva Nazokat Ilxamovna Nazokat Ilkhamovna Tillaeva" },
+    { id: "doctor-ubaydullaev", nameKey: "doc.ubaydullaev.name", roleKey: "doc.ubaydullaev.role", text: "Врач-нейрохирург Ubaydullaev Elbek Amondulla o‘g‘li Elbek Amondulla ugli Ubaydullaev" },
+    { id: "doctor-urunbaev", nameKey: "doc.urunbaev.name", roleKey: "doc.urunbaev.role", text: "Врач-нейрохирург Urunbaev Ma‘ruf Mahamatjonovich Maruf Mahamatjonovich Urunbaev" },
+    { id: "doctor-halibaeva", nameKey: "doc.halibaeva.name", roleKey: "doc.halibaeva.role", text: "Врач-радиолог Xalibaeva Guzal Batirovna Guzal Batirovna Khalibaeva" },
+    { id: "doctor-halimbaeva", nameKey: "doc.halimbaeva.name", roleKey: "doc.halimbaeva.role", text: "Главный врач, кардиолог Xalimbaeva Marxabo Azimjanovna Markhabo Azimjanovna Khalimbaeva" },
+    { id: "doctor-hasanov", nameKey: "doc.hasanov.name", roleKey: "doc.hasanov.role", text: "Дежурный врач-хирург Xasanov Xamdam Komiljonovich Khamdam Komiljonovich Khasanov" },
+    { id: "doctor-hojalepesova", nameKey: "doc.hojalepesova.name", roleKey: "doc.hojalepesova.role", text: "Дежурный онколог-хирург Xojalepesova Mehriban Atabekovna Mehriban Atabekovna Khojalepesova" },
+    { id: "doctor-husniddinov", nameKey: "doc.husniddinov.name", roleKey: "doc.husniddinov.role", text: "Заведующий ОАРИТ (реанимацией), реаниматолог Xusniddinov Nuriddin Xusniddinovich Nuriddin Khusniddinovich Khusniddinov" },
+    { id: "doctor-shomuratov", nameKey: "doc.shomuratov.name", roleKey: "doc.shomuratov.role", text: "Дежурный врач-нейрохирург Shomuratov Zokir Shokirovich Zokir Shokirovich Shomuratov" },
+    { id: "doctor-egamnazarova", nameKey: "doc.egamnazarova.name", roleKey: "doc.egamnazarova.role", text: "Врач-невролог Egamnazarova Zulayho Ravshanovna Zulaykho Ravshanovna Egamnazarova" },
   ];
 
   const INFO_INDEX = [
@@ -7377,6 +7917,8 @@ window.NEURON_PRICES = {"updated":"09.09.2026","currency":"сум","categories":
 
     const target = document.getElementById(item.target);
     if (!target) return;
+    const folded = target.closest("details");
+    if (folded) folded.open = true;
     const headerOffset = (header?.offsetHeight || 72) + 12;
     const top = target.getBoundingClientRect().top + window.scrollY - headerOffset;
     window.scrollTo({ top, behavior: "smooth" });
@@ -7424,6 +7966,16 @@ window.NEURON_PRICES = {"updated":"09.09.2026","currency":"сум","categories":
   if (location.hash === "#booking" || location.hash === "#callback") {
     history.replaceState(null, "", "#contacts");
   }
+
+  const openFoldedTarget = () => {
+    const id = (location.hash || "").slice(1);
+    if (!id) return;
+    const el = document.getElementById(id);
+    const folded = el && el.closest("details");
+    if (folded) folded.open = true;
+  };
+  openFoldedTarget();
+  window.addEventListener("hashchange", openFoldedTarget);
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {

@@ -246,6 +246,358 @@
           "worksFor": {
             "@id": "https://neuronmedical.uz/#organization"
           }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-abdurahmanov",
+          "name": "Abdurahmanov Otabek Muhammatsolievich",
+          "medicalSpecialty": "Gematolog-transfuziolog",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-abdurahmanov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-boydavlatov",
+          "name": "Boydavlatov Umurzok Aliqul o‘g‘li",
+          "medicalSpecialty": "Navbatchi jarroh",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-boydavlatov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-abdullaev",
+          "name": "Abdullaev Nabi Kuldoshevich",
+          "medicalSpecialty": "Qon tomir neyroxirurgi",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-abdullaev",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-gofurova",
+          "name": "Gofurova Nodira Fatxullaeva",
+          "medicalSpecialty": "Nevrolog",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-gofurova",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-zaremba",
+          "name": "Zaremba Aleksandr Evgenevich",
+          "medicalSpecialty": "Neyroxirurg",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-zaremba",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-ilhamov",
+          "name": "Ilxamov Dilshod Farxadovich",
+          "medicalSpecialty": "Radiolog",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-ilhamov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-islomov",
+          "name": "Islomov Odil Ergashevich",
+          "medicalSpecialty": "Navbatchi anesteziolog-reanimatolog",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-islomov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-ishmukhamedov-sadulla",
+          "name": "Ishmuhamedov Sa‘dulla Nigmatjonovich",
+          "medicalSpecialty": "Neyroxirurg",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-ishmukhamedov-sadulla",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-ishmukhamedov-habibullo",
+          "name": "Ishmuhamedov Habibullo Fayzullaevich",
+          "medicalSpecialty": "Neyroxirurg",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-ishmukhamedov-habibullo",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-karimova",
+          "name": "Karimova Gulnora Vagizovna",
+          "medicalSpecialty": "Funksional diagnostika shifokori (ENMG)",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-karimova",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-mardonova",
+          "name": "Mardonova Xilola Jahongirovna",
+          "medicalSpecialty": "Nevrolog",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-mardonova",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-mahamadiev",
+          "name": "Maxamadiev Javohir Jahongir o‘g‘li",
+          "medicalSpecialty": "Anesteziolog-reanimatolog",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-mahamadiev",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-muminov",
+          "name": "Muminov Zuxriddin Vaxabovich",
+          "medicalSpecialty": "Anesteziolog-reanimatolog, operatsiya bloki mudiri",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-muminov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-murodova",
+          "name": "Murodova Dilorom Subxonovna",
+          "medicalSpecialty": "Bo‘lim mudiri, neyroxirurg",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-murodova",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-nadjabov",
+          "name": "Najabov Gazamfar Alievich",
+          "medicalSpecialty": "Radiolog",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-nadjabov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-rahimov",
+          "name": "Rahimov Avazbek Salimjon o‘g‘li",
+          "medicalSpecialty": "Navbatchi neyroxirurg",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-rahimov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-rahmankulov",
+          "name": "Rahmankulov Kamil Xudayqulovich",
+          "medicalSpecialty": "Navbatchi anesteziolog-reanimatolog",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-rahmankulov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-rahmatullaeva",
+          "name": "Rahmatullaeva Dono Saloxitdinovna",
+          "medicalSpecialty": "Oftalmolog",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-rahmatullaeva",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-sobirov",
+          "name": "Sobirov Akbar Bahrombek o‘g‘li",
+          "medicalSpecialty": "Navbatchi anesteziolog-reanimatolog",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-sobirov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-solijonov",
+          "name": "Solijonov Ulugbek Ma‘rufjonovich",
+          "medicalSpecialty": "Radiolog",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-solijonov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-ten",
+          "name": "Ten Vladimir Denisovich",
+          "medicalSpecialty": "Neyroxirurg",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-ten",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-teshaboeva",
+          "name": "Teshaboeva Mahsuda Abdumajidovna",
+          "medicalSpecialty": "Navbatchi anesteziolog-reanimatolog",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-teshaboeva",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-tillaeva",
+          "name": "Tillayeva Nazokat Ilxamovna",
+          "medicalSpecialty": "Laboratoriya mudiri, shifokor",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-tillaeva",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-ubaydullaev",
+          "name": "Ubaydullaev Elbek Amondulla o‘g‘li",
+          "medicalSpecialty": "Neyroxirurg",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-ubaydullaev",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-urunbaev",
+          "name": "Urunbaev Ma‘ruf Mahamatjonovich",
+          "medicalSpecialty": "Neyroxirurg",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-urunbaev",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-halibaeva",
+          "name": "Xalibaeva Guzal Batirovna",
+          "medicalSpecialty": "Radiolog",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-halibaeva",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-halimbaeva",
+          "name": "Xalimbaeva Marxabo Azimjanovna",
+          "medicalSpecialty": "Bosh shifokor, kardiolog",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-halimbaeva",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-hasanov",
+          "name": "Xasanov Xamdam Komiljonovich",
+          "medicalSpecialty": "Navbatchi jarroh",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-hasanov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-hojalepesova",
+          "name": "Xojalepesova Mehriban Atabekovna",
+          "medicalSpecialty": "Navbatchi onkolog-jarroh",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-hojalepesova",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-husniddinov",
+          "name": "Xusniddinov Nuriddin Xusniddinovich",
+          "medicalSpecialty": "RAIT mudiri, reanimatolog",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-husniddinov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-shomuratov",
+          "name": "Shomuratov Zokir Shokirovich",
+          "medicalSpecialty": "Navbatchi shifokor-neyroxirurg",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-shomuratov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-egamnazarova",
+          "name": "Egamnazarova Zulayho Ravshanovna",
+          "medicalSpecialty": "Nevrolog",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=uz#doctor-egamnazarova",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
         }
       ]
     },
@@ -499,6 +851,358 @@
           "worksFor": {
             "@id": "https://neuronmedical.uz/#organization"
           }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-abdurahmanov",
+          "name": "Абдурахманов Отабек Мухамматсолиевич",
+          "medicalSpecialty": "Гематолог-трансфузиолог",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-abdurahmanov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-boydavlatov",
+          "name": "Бойдавлатов Умурзок Аликул угли",
+          "medicalSpecialty": "Дежурный врач-хирург",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-boydavlatov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-abdullaev",
+          "name": "Абдуллаев Наби Кулдошевич",
+          "medicalSpecialty": "Врач-нейрохирург (сосудистый)",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-abdullaev",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-gofurova",
+          "name": "Гофурова Нодира Фатхуллаевна",
+          "medicalSpecialty": "Врач-невролог",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-gofurova",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-zaremba",
+          "name": "Заремба Александр Евгеньевич",
+          "medicalSpecialty": "Врач-нейрохирург",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-zaremba",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-ilhamov",
+          "name": "Илхамов Дилшод Фархадович",
+          "medicalSpecialty": "Врач-радиолог",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-ilhamov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-islomov",
+          "name": "Исломов Одил Эргашевич",
+          "medicalSpecialty": "Дежурный врач анестезиолог-реаниматолог",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-islomov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-ishmukhamedov-sadulla",
+          "name": "Ишмухамедов Саъдулла Нигматжонович",
+          "medicalSpecialty": "Врач-нейрохирург",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-ishmukhamedov-sadulla",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-ishmukhamedov-habibullo",
+          "name": "Ишмухамедов Хабибулло Файзуллаевич",
+          "medicalSpecialty": "Врач-нейрохирург",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-ishmukhamedov-habibullo",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-karimova",
+          "name": "Каримова Гулнора Вагизовна",
+          "medicalSpecialty": "Врач функциональной диагностики (ЭНМГ)",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-karimova",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-mardonova",
+          "name": "Мардонова Хилола Жахонгировна",
+          "medicalSpecialty": "Врач-невролог",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-mardonova",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-mahamadiev",
+          "name": "Махамадиев Жавохир Жахонгир угли",
+          "medicalSpecialty": "Врач анестезиолог-реаниматолог",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-mahamadiev",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-muminov",
+          "name": "Муминов Зухриддин Вахабович",
+          "medicalSpecialty": "Врач анестезиолог-реаниматолог, заведующий операционным блоком",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-muminov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-murodova",
+          "name": "Муродова Дилором Субхановна",
+          "medicalSpecialty": "Заведующая отделением, врач-нейрохирург",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-murodova",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-nadjabov",
+          "name": "Наджабов Газамфар Алиевич",
+          "medicalSpecialty": "Врач-радиолог",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-nadjabov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-rahimov",
+          "name": "Рахимов Авазбек Салимжон угли",
+          "medicalSpecialty": "Дежурный нейрохирург",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-rahimov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-rahmankulov",
+          "name": "Рахманкулов Камил Худайкулович",
+          "medicalSpecialty": "Дежурный врач анестезиолог-реаниматолог",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-rahmankulov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-rahmatullaeva",
+          "name": "Рахматуллаева Доно Салохитдиновна",
+          "medicalSpecialty": "Врач-офтальмолог",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-rahmatullaeva",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-sobirov",
+          "name": "Собиров Акбар Бахромбек угли",
+          "medicalSpecialty": "Дежурный врач анестезиолог-реаниматолог",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-sobirov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-solijonov",
+          "name": "Солижонов Улугбек Маъруфжонович",
+          "medicalSpecialty": "Врач-радиолог",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-solijonov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-ten",
+          "name": "Тен Владимир Денисович",
+          "medicalSpecialty": "Врач-нейрохирург",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-ten",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-teshaboeva",
+          "name": "Тешабоева Махсуда Абдумажидовна",
+          "medicalSpecialty": "Дежурный врач анестезиолог-реаниматолог",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-teshaboeva",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-tillaeva",
+          "name": "Тиллаева Назокат Илхамовна",
+          "medicalSpecialty": "Заведующая лабораторией, врач",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-tillaeva",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-ubaydullaev",
+          "name": "Убайдуллаев Элбек Амондулла угли",
+          "medicalSpecialty": "Врач-нейрохирург",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-ubaydullaev",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-urunbaev",
+          "name": "Урунбаев Маъруф Махаматжонович",
+          "medicalSpecialty": "Врач-нейрохирург",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-urunbaev",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-halibaeva",
+          "name": "Халибаева Гузал Батировна",
+          "medicalSpecialty": "Врач-радиолог",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-halibaeva",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-halimbaeva",
+          "name": "Халимбаева Мархабо Азимджановна",
+          "medicalSpecialty": "Главный врач, кардиолог",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-halimbaeva",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-hasanov",
+          "name": "Хасанов Хамдам Комилжонович",
+          "medicalSpecialty": "Дежурный врач-хирург",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-hasanov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-hojalepesova",
+          "name": "Хожалепесова Мехрибан Атабековна",
+          "medicalSpecialty": "Дежурный онколог-хирург",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-hojalepesova",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-husniddinov",
+          "name": "Хусниддинов Нуриддин Хусниддинович",
+          "medicalSpecialty": "Заведующий ОАРИТ (реанимацией), реаниматолог",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-husniddinov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-shomuratov",
+          "name": "Шомуратов Зокир Шокирович",
+          "medicalSpecialty": "Дежурный врач-нейрохирург",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-shomuratov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-egamnazarova",
+          "name": "Эгамназарова Зулайхо Равшановна",
+          "medicalSpecialty": "Врач-невролог",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=ru#doctor-egamnazarova",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
         }
       ]
     },
@@ -749,6 +1453,358 @@
           "medicalSpecialty": "Plastic surgeon",
           "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
           "url": "https://neuronmedical.uz/?lang=en#doctor-muslimov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-abdurahmanov",
+          "name": "Otabek Muhammatsolievich Abdurahmanov",
+          "medicalSpecialty": "Hematologist-transfusiologist",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-abdurahmanov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-boydavlatov",
+          "name": "Umurzok Aliqul ugli Boydavlatov",
+          "medicalSpecialty": "Duty surgeon",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-boydavlatov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-abdullaev",
+          "name": "Nabi Kuldoshevich Abdullaev",
+          "medicalSpecialty": "Vascular neurosurgeon",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-abdullaev",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-gofurova",
+          "name": "Nodira Fatkhullaeva Gofurova",
+          "medicalSpecialty": "Neurologist",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-gofurova",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-zaremba",
+          "name": "Aleksandr Evgenevich Zaremba",
+          "medicalSpecialty": "Neurosurgeon",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-zaremba",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-ilhamov",
+          "name": "Dilshod Farkhadovich Ilkhamov",
+          "medicalSpecialty": "Radiologist",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-ilhamov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-islomov",
+          "name": "Odil Ergashevich Islomov",
+          "medicalSpecialty": "Duty anesthesiologist-intensivist",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-islomov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-ishmukhamedov-sadulla",
+          "name": "Sadulla Nigmatjonovich Ishmukhamedov",
+          "medicalSpecialty": "Neurosurgeon",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-ishmukhamedov-sadulla",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-ishmukhamedov-habibullo",
+          "name": "Habibullo Fayzullaevich Ishmukhamedov",
+          "medicalSpecialty": "Neurosurgeon",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-ishmukhamedov-habibullo",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-karimova",
+          "name": "Gulnora Vagizovna Karimova",
+          "medicalSpecialty": "Functional diagnostics physician (ENMG)",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-karimova",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-mardonova",
+          "name": "Khilola Jahongirovna Mardonova",
+          "medicalSpecialty": "Neurologist",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-mardonova",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-mahamadiev",
+          "name": "Javokhir Jahongir ugli Makhamadiev",
+          "medicalSpecialty": "Anesthesiologist-intensivist",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-mahamadiev",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-muminov",
+          "name": "Zukhriddin Vakhabovich Muminov",
+          "medicalSpecialty": "Anesthesiologist-intensivist, head of the operating unit",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-muminov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-murodova",
+          "name": "Dilorom Subkhanovna Murodova",
+          "medicalSpecialty": "Head of department, neurosurgeon",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-murodova",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-nadjabov",
+          "name": "Gazamfar Alievich Najabov",
+          "medicalSpecialty": "Radiologist",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-nadjabov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-rahimov",
+          "name": "Avazbek Salimjon ugli Rakhimov",
+          "medicalSpecialty": "Duty neurosurgeon",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-rahimov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-rahmankulov",
+          "name": "Kamil Khudaykulovich Rakhmankulov",
+          "medicalSpecialty": "Duty anesthesiologist-intensivist",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-rahmankulov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-rahmatullaeva",
+          "name": "Dono Salokhitdinovna Rakhmatullaeva",
+          "medicalSpecialty": "Ophthalmologist",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-rahmatullaeva",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-sobirov",
+          "name": "Akbar Bakhrombek ugli Sobirov",
+          "medicalSpecialty": "Duty anesthesiologist-intensivist",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-sobirov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-solijonov",
+          "name": "Ulugbek Marufjonovich Solijonov",
+          "medicalSpecialty": "Radiologist",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-solijonov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-ten",
+          "name": "Vladimir Denisovich Ten",
+          "medicalSpecialty": "Neurosurgeon",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-ten",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-teshaboeva",
+          "name": "Makhsuda Abdumajidovna Teshaboeva",
+          "medicalSpecialty": "Duty anesthesiologist-intensivist",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-teshaboeva",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-tillaeva",
+          "name": "Nazokat Ilkhamovna Tillaeva",
+          "medicalSpecialty": "Head of the laboratory, physician",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-tillaeva",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-ubaydullaev",
+          "name": "Elbek Amondulla ugli Ubaydullaev",
+          "medicalSpecialty": "Neurosurgeon",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-ubaydullaev",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-urunbaev",
+          "name": "Maruf Mahamatjonovich Urunbaev",
+          "medicalSpecialty": "Neurosurgeon",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-urunbaev",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-halibaeva",
+          "name": "Guzal Batirovna Khalibaeva",
+          "medicalSpecialty": "Radiologist",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-halibaeva",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-halimbaeva",
+          "name": "Markhabo Azimjanovna Khalimbaeva",
+          "medicalSpecialty": "Chief physician, cardiologist",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-halimbaeva",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-hasanov",
+          "name": "Khamdam Komiljonovich Khasanov",
+          "medicalSpecialty": "Duty surgeon",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-hasanov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-hojalepesova",
+          "name": "Mehriban Atabekovna Khojalepesova",
+          "medicalSpecialty": "Duty oncologic surgeon",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-hojalepesova",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-husniddinov",
+          "name": "Nuriddin Khusniddinovich Khusniddinov",
+          "medicalSpecialty": "Head of ICU, intensivist",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-husniddinov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-shomuratov",
+          "name": "Zokir Shokirovich Shomuratov",
+          "medicalSpecialty": "Duty neurosurgeon",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-shomuratov",
+          "worksFor": {
+            "@id": "https://neuronmedical.uz/#organization"
+          }
+        },
+        {
+          "@type": "Physician",
+          "@id": "https://neuronmedical.uz/#doctor-egamnazarova",
+          "name": "Zulaykho Ravshanovna Egamnazarova",
+          "medicalSpecialty": "Neurologist",
+          "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+          "url": "https://neuronmedical.uz/?lang=en#doctor-egamnazarova",
           "worksFor": {
             "@id": "https://neuronmedical.uz/#organization"
           }
