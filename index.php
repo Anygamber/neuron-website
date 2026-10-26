@@ -7,6 +7,102 @@
  */
 declare(strict_types=1);
 
+function neuron_swap_html(string $html, string $pattern, string $value): string
+{
+    $next = preg_replace_callback(
+        $pattern,
+        static function (array $m) use ($value): string {
+            return $m[1] . $value . $m[2];
+        },
+        $html,
+        1
+    );
+    return is_string($next) ? $next : $html;
+}
+
+function neuron_apply_visible_copy(string $html, array $graph): string
+{
+    $nodes = $graph['@graph'] ?? [];
+    if (!is_array($nodes)) {
+        return $html;
+    }
+    $text = static function (string $value): string {
+        return htmlspecialchars($value, ENT_NOQUOTES | ENT_HTML5, 'UTF-8');
+    };
+    $attr = static function (string $value): string {
+        return htmlspecialchars($value, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    };
+    foreach ($nodes as $node) {
+        if (!is_array($node)) {
+            continue;
+        }
+        $type = $node['@type'] ?? '';
+        $types = is_array($type) ? $type : [$type];
+        if (in_array('FAQPage', $types, true)) {
+            $entities = $node['mainEntity'] ?? [];
+            if (!is_array($entities)) {
+                continue;
+            }
+            foreach ($entities as $i => $question) {
+                if (!is_array($question)) {
+                    continue;
+                }
+                $n = $i + 1;
+                $name = (string)($question['name'] ?? '');
+                $answerNode = $question['acceptedAnswer'] ?? [];
+                $answer = is_array($answerNode) ? (string)($answerNode['text'] ?? '') : '';
+                if ($name !== '') {
+                    $html = neuron_swap_html(
+                        $html,
+                        '/(<[^>]*\sdata-i18n="faq\.q' . $n . '"[^>]*>)[^<]*(<\/)/',
+                        $text($name)
+                    );
+                }
+                if ($answer !== '') {
+                    $html = neuron_swap_html(
+                        $html,
+                        '/(<[^>]*\sdata-i18n="faq\.a' . $n . '"[^>]*>)[^<]*(<\/)/',
+                        $text($answer)
+                    );
+                }
+            }
+        }
+        if (!in_array('Physician', $types, true)) {
+            continue;
+        }
+        $id = (string)($node['@id'] ?? '');
+        if (!preg_match('/#doctor-([a-z0-9-]+)$/', $id, $slugMatch)) {
+            continue;
+        }
+        $slug = $slugMatch[1];
+        $name = (string)($node['name'] ?? '');
+        $role = (string)($node['medicalSpecialty'] ?? '');
+        if ($name !== '') {
+            $key = 'doc.' . $slug . '.name';
+            $quoted = preg_quote($key, '/');
+            $html = neuron_swap_html(
+                $html,
+                '/(<[^>]*\sdata-i18n="' . $quoted . '"[^>]*>)[^<]*(<\/)/',
+                $text($name)
+            );
+            $html = neuron_swap_html(
+                $html,
+                '/(alt=")[^"]*("\s+data-i18n-alt="' . $quoted . '")/',
+                $attr($name)
+            );
+        }
+        if ($role !== '') {
+            $key = 'doc.' . $slug . '.role';
+            $html = neuron_swap_html(
+                $html,
+                '/(<[^>]*\sdata-i18n="' . preg_quote($key, '/') . '"[^>]*>)[^<]*(<\/)/',
+                $text($role)
+            );
+        }
+    }
+    return $html;
+}
+
 $root = __DIR__;
 $raw = file_get_contents($root . '/seo-meta.json');
 $catalog = json_decode($raw === false ? '' : $raw, true);
@@ -94,6 +190,32 @@ foreach (
     );
 }
 $html = $replace($html, '/(<link\s+rel="canonical"\s+href=")[^"]*(")/i', $url);
+
+$schemaRaw = file_get_contents($root . '/schema-i18n.json');
+$schema = json_decode($schemaRaw === false ? '' : $schemaRaw, true);
+if (is_array($schema) && isset($schema['graphs']) && is_array($schema['graphs'])) {
+    $schemaCode = isset($schema['graphs'][$lang]) ? $lang : (string)($schema['default'] ?? 'uz');
+    $graph = $schema['graphs'][$schemaCode] ?? null;
+    if (is_array($graph)) {
+        $payload = json_encode(
+            $graph,
+            JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
+        );
+        if (is_string($payload)) {
+            $next = preg_replace_callback(
+                '/(<script\s+type="application\/ld\+json"\s+id="neuron-schema-org">)(.*?)(<\/script>)/is',
+                static function (array $m) use ($payload): string {
+                    return $m[1] . "\n" . $payload . "\n  " . $m[3];
+                },
+                $html,
+                1
+            );
+            if (is_string($next)) {
+                $html = neuron_apply_visible_copy($next, $graph);
+            }
+        }
+    }
+}
 
 header('Content-Type: text/html; charset=UTF-8');
 header('Content-Language: ' . (string)($pack['htmlLang'] ?? $lang));

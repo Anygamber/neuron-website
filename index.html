@@ -54,114 +54,235 @@
   <meta name="twitter:image" content="https://neuronmedical.uz/NeurON-square-light.png" />
 
   <script type="application/ld+json" id="neuron-schema-org">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": ["MedicalOrganization", "MedicalBusiness", "Hospital"],
-        "@id": "https://neuronmedical.uz/#organization",
-        "name": "NeurON Medical Centre",
-        "alternateName": ["NeurON", "Neuron Medical", "Клиника NeurON"],
-        "url": "https://neuronmedical.uz/",
-        "logo": "https://neuronmedical.uz/NeurON-icon-circle.png",
-        "image": "https://neuronmedical.uz/NeurON-square-light.png",
-        "telephone": "+998712000020",
-        "email": "info@neuronmedical.uz",
-        "priceRange": "$$",
-        "currenciesAccepted": "UZS",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Yunusabad district, Otchopar-2, 3rd Chinabad passage, house 2",
-          "addressLocality": "Tashkent",
-          "addressRegion": "Tashkent",
-          "addressCountry": "UZ"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 41.3667,
-          "longitude": 69.2881
-        },
-        "areaServed": {
-          "@type": "City",
-          "name": "Tashkent"
-        },
-        "medicalSpecialty": [
-          "Neurosurgery",
-          "Neurology",
-          "PainManagement",
-          "Oncology",
-          "Diagnostic"
-        ],
-        "availableService": [
-          {
-            "@type": "MedicalProcedure",
-            "name": "Neurosurgery / Нейрохирургия Ташкент",
-            "description": "Brain and spine neurosurgery including neuro-oncology, vascular and spinal procedures."
-          },
-          {
-            "@type": "MedicalProcedure",
-            "name": "Neuro-oncology — brain tumor, meningioma, glioma, pituitary adenoma"
-          },
-          {
-            "@type": "MedicalProcedure",
-            "name": "Vascular neurosurgery — cerebral aneurysm, AVM, cavernoma"
-          },
-          {
-            "@type": "MedicalProcedure",
-            "name": "Spinal neurosurgery — disc herniation, microdiscectomy, stenosis, vertebroplasty"
-          },
-          {
-            "@type": "MedicalProcedure",
-            "name": "Functional neurosurgery — trigeminal neuralgia, microvascular decompression"
-          },
-          {
-            "@type": "MedicalProcedure",
-            "name": "Epilepsy surgery — drug-resistant epilepsy, epileptogenic focus"
-          },
-          {
-            "@type": "MedicalProcedure",
-            "name": "Pain Management — epidural block, RFA, COSMAN G4 / Cosman 4G"
-          }
-        ],
-        "sameAs": [
-          "https://neuronmedical.uz/",
-          "https://www.instagram.com/neuronmed.uz/",
-          "https://t.me/neuronmedical_center",
-          "https://www.facebook.com/profile.php?id=61595203029647"
-        ]
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "MedicalClinic",
+        "MedicalOrganization"
+      ],
+      "@id": "https://neuronmedical.uz/#organization",
+      "name": "NeurON Medical Centre",
+      "alternateName": [
+        "NeurON",
+        "Neuron Medical",
+        "Клиника NeurON"
+      ],
+      "url": "https://neuronmedical.uz/",
+      "logo": "https://neuronmedical.uz/NeurON-icon-circle.png",
+      "image": "https://neuronmedical.uz/NeurON-square-light.png",
+      "telephone": "+998 71 200 00 20",
+      "email": "info@neuronmedical.uz",
+      "priceRange": "$$",
+      "currenciesAccepted": "UZS",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Юнусабад, Отчопар-2, 3-й проезд Чинабад, дом 2",
+        "addressLocality": "Ташкент",
+        "addressCountry": "UZ"
       },
-      {
-        "@type": "WebSite",
-        "@id": "https://neuronmedical.uz/#website",
-        "url": "https://neuronmedical.uz/",
-        "name": "NeurON Medical Centre",
-        "inLanguage": ["uz", "ru", "en"],
-        "publisher": { "@id": "https://neuronmedical.uz/#organization" }
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.3667,
+        "longitude": 69.2881
       },
-      {
-        "@type": "FAQPage",
-        "@id": "https://neuronmedical.uz/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Who is a neurosurgeon and when to visit in Tashkent?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "A neurosurgeon treats brain, spine and peripheral nerve disease. At NeurON Tashkent patients seek care for brain tumors, aneurysms, disc herniation, trigeminal neuralgia and drug-resistant epilepsy."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What does the Pain Management Center offer?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Chronic pain treatment with epidural blocks, radiofrequency ablation (RFA) on COSMAN G4, and pulsed RF for neuropathic pain — often without general anesthesia."
-            }
-          }
-        ]
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "https://schema.org/Monday",
+            "https://schema.org/Tuesday",
+            "https://schema.org/Wednesday",
+            "https://schema.org/Thursday",
+            "https://schema.org/Friday",
+            "https://schema.org/Saturday"
+          ],
+          "opens": "08:00",
+          "closes": "20:00"
+        }
+      ],
+      "areaServed": {
+        "@type": "City",
+        "name": "Ташкент"
+      },
+      "medicalSpecialty": [
+        "Neurosurgery",
+        "Neurology",
+        "PainManagement",
+        "Oncology",
+        "Diagnostic"
+      ],
+      "availableService": [
+        {
+          "@type": "MedicalProcedure",
+          "name": "Neurosurgery / Нейрохирургия Ташкент",
+          "description": "Brain and spine neurosurgery including neuro-oncology, vascular and spinal procedures."
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Neuro-oncology — brain tumor, meningioma, glioma, pituitary adenoma"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Vascular neurosurgery — cerebral aneurysm, AVM, cavernoma"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Spinal neurosurgery — disc herniation, microdiscectomy, stenosis, vertebroplasty"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Functional neurosurgery — trigeminal neuralgia, microvascular decompression"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Epilepsy surgery — drug-resistant epilepsy, epileptogenic focus"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Pain Management — epidural block, RFA, COSMAN G4 / Cosman 4G"
+        }
+      ],
+      "sameAs": [
+        "https://t.me/neuronmedical_center",
+        "https://www.instagram.com/neuronmed.uz/",
+        "https://www.facebook.com/profile.php?id=61595203029647"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://neuronmedical.uz/#website",
+      "url": "https://neuronmedical.uz/",
+      "name": "NeurON Medical Centre",
+      "inLanguage": [
+        "uz",
+        "ru",
+        "en"
+      ],
+      "publisher": {
+        "@id": "https://neuronmedical.uz/#organization"
       }
-    ]
-  }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://neuronmedical.uz/#faq",
+      "inLanguage": "ru",
+      "url": "https://neuronmedical.uz/?lang=ru#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Кто такой нейрохирург и когда обращаться в Ташкенте?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нейрохирург — врач, который лечит заболевания головного и спинного мозга, позвоночника и периферических нервов. В NeurON (Ташкент) обращаются при опухоли головного мозга, аневризме, грыже позвоночника, невралгии тройничного нерва и фармакорезистентной эпилепсии."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что включает нейроонкология в NeurON?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нейроонкология — диагностика и хирургическое лечение опухолей: менингиома, глиома, аденома гипофиза и другие объёмные образования ЦНС с планированием по МРТ и МСКТ-контролем."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как лечат хроническую боль в Центре боли?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Центр лечения боли предлагает эпидуральные и лечебные блокады, радиочастотную абляцию (РЧА) на COSMAN G4, импульсную радиочастотную терапию при нейропатической боли — часто без общего наркоза и с коротким восстановлением."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Делают ли в клинике хирургию эпилепсии?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. При фармакорезистентной эпилепсии рассматривается удаление или воздействие на эпилептогенный очаг после комплексного обследования нейрохирургом и неврологом."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://neuronmedical.uz/#doctor-burnashev",
+      "name": "Бурнашев Марсель Ильдарович",
+      "medicalSpecialty": "Врач высшей категории · Нейрохирург",
+      "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+      "url": "https://neuronmedical.uz/?lang=ru#doctor-burnashev",
+      "worksFor": {
+        "@id": "https://neuronmedical.uz/#organization"
+      }
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://neuronmedical.uz/#doctor-kim",
+      "name": "Ким Андрей Афонасьевич",
+      "medicalSpecialty": "Врач высшей категории · Нейрохирург",
+      "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+      "url": "https://neuronmedical.uz/?lang=ru#doctor-kim",
+      "worksFor": {
+        "@id": "https://neuronmedical.uz/#organization"
+      }
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://neuronmedical.uz/#doctor-alimov",
+      "name": "Алимов Ижод Рустамович",
+      "medicalSpecialty": "Доктор медицинских наук",
+      "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+      "url": "https://neuronmedical.uz/?lang=ru#doctor-alimov",
+      "worksFor": {
+        "@id": "https://neuronmedical.uz/#organization"
+      }
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://neuronmedical.uz/#doctor-hamrokulov",
+      "name": "Хамрокулов Бекзод Баходирович",
+      "medicalSpecialty": "Кандидат медицинских наук",
+      "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+      "url": "https://neuronmedical.uz/?lang=ru#doctor-hamrokulov",
+      "worksFor": {
+        "@id": "https://neuronmedical.uz/#organization"
+      }
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://neuronmedical.uz/#doctor-allarov",
+      "name": "Аллаяров Улугбек Джураевич",
+      "medicalSpecialty": "Кандидат медицинских наук",
+      "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+      "url": "https://neuronmedical.uz/?lang=ru#doctor-allarov",
+      "worksFor": {
+        "@id": "https://neuronmedical.uz/#organization"
+      }
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://neuronmedical.uz/#doctor-abdujapparov",
+      "name": "Абдужаппаров Сулаймон Бахриддинович",
+      "medicalSpecialty": "Д.м.н., профессор",
+      "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+      "url": "https://neuronmedical.uz/?lang=ru#doctor-abdujapparov",
+      "worksFor": {
+        "@id": "https://neuronmedical.uz/#organization"
+      }
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://neuronmedical.uz/#doctor-muslimov",
+      "name": "Муслимов Улугбек Якубджанович",
+      "medicalSpecialty": "Пластический хирург",
+      "image": "https://neuronmedical.uz/images/doctors/placeholder.jpg",
+      "url": "https://neuronmedical.uz/?lang=ru#doctor-muslimov",
+      "worksFor": {
+        "@id": "https://neuronmedical.uz/#organization"
+      }
+    }
+  ]
+}
   </script>
 
   <link rel="icon" href="NeurON-icon-circle.png" type="image/png" />
@@ -5449,7 +5570,7 @@
         </div>
         <a class="header-phone" href="tel:+998712000020" aria-label="Позвонить в клинику" data-i18n-aria="header.phoneAria">
           <i class="icon-phone" aria-hidden="true"></i>
-          <span class="header-phone-num">+998 (71) 200-00-20</span>
+          <span class="header-phone-num">+998 71 200 00 20</span>
         </a>
         <button type="button" class="header-search-btn" id="globalSearchOpen" aria-label="Открыть поиск по сайту" data-i18n-aria="header.searchAria" aria-haspopup="dialog">
           <i class="icon-search" aria-hidden="true"></i>
@@ -5492,7 +5613,7 @@
       <i class="icon-search" aria-hidden="true"></i>
       <span data-i18n="mobile.search">Поиск по сайту</span>
     </button>
-    <a href="tel:+998712000020" style="margin-top:8px">+998 (71) 200-00-20</a>
+    <a href="tel:+998712000020" style="margin-top:8px">+998 71 200 00 20</a>
     <a href="#contacts" class="btn btn-primary" style="margin-top:12px" data-i18n="nav.contacts">Контакты</a>
   </nav>
 
@@ -6443,7 +6564,7 @@
           </article>
           <article>
             <h3 data-i18n="faq.q3">Как лечат хроническую боль в Центре боли?</h3>
-            <p data-i18n="faq.a3" style="color:var(--dimgray);line-height:1.65;margin-top:8px;">Центр лечения боли (Pain Management) предлагает эпидуральные и лечебные блокады, радиочастотную абляцию (РЧА) на COSMAN G4, PRF при нейропатической боли — часто без общего наркоза и с коротким восстановлением.</p>
+            <p data-i18n="faq.a3" style="color:var(--dimgray);line-height:1.65;margin-top:8px;">Центр лечения боли предлагает эпидуральные и лечебные блокады, радиочастотную абляцию (РЧА) на COSMAN G4, импульсную радиочастотную терапию при нейропатической боли — часто без общего наркоза и с коротким восстановлением.</p>
           </article>
           <article>
             <h3 data-i18n="faq.q4">Делают ли в клинике хирургию эпилепсии?</h3>
@@ -6517,7 +6638,7 @@
                 <i class="icon-phone" aria-hidden="true"></i>
                 <div>
                   <strong data-i18n="contacts.phone">Телефон</strong>
-                  <a href="tel:+998712000020">+998 (71) 200-00-20</a>
+                  <a href="tel:+998712000020">+998 71 200 00 20</a>
                 </div>
               </div>
               <div class="contact-line">
@@ -6531,7 +6652,7 @@
                 <i class="icon-map-pin" aria-hidden="true"></i>
                 <div>
                   <strong data-i18n="contacts.address">Адрес</strong>
-                  <span class="address-ru">Ташкент, Юнусабадский район, махалля Отчопар-2, 3-й проезд Чинабад, дом 2</span>
+                  <span class="address-ru">Ташкент, Юнусабад, Отчопар-2, 3-й проезд Чинабад, дом 2</span>
                   <span class="address-uz">Юнусобод тумани, Отчопар-2 МФЙ, Чинобод 3-тор кўчаси, 2-уй</span>
                   <span class="address-en">Tashkent, Yunusabad district, Otchopar-2 mahalla, 3rd Chinabad passage, building 2</span>
                 </div>
@@ -6567,7 +6688,7 @@
                   </span>
                   <span data-i18n="social.facebook">Facebook</span>
                 </a>
-                <a class="social-follow__link social-follow__link--wa" role="listitem" href="https://wa.me/998712000020" target="_blank" rel="noopener noreferrer" data-i18n-aria="social.whatsappAria" aria-label="Написать в WhatsApp — +998 71 200-00-20">
+                <a class="social-follow__link social-follow__link--wa" role="listitem" href="https://wa.me/998712000020" target="_blank" rel="noopener noreferrer" data-i18n-aria="social.whatsappAria" aria-label="Написать в WhatsApp — +998 71 200 00 20">
                   <span class="social-follow__icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.3-1.4A9.9 9.9 0 1 0 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3a8.2 8.2 0 1 1 7 3.8Zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.2.2-.3.2-.5 0-.1 0-.4-.1-.5-.1-.1-.5-1.3-.7-1.8-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.9 2.6 1.1 2.6.7 3.1.7.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1 0-.3-.1-.5-.2Z"/></svg>
                   </span>
@@ -6670,7 +6791,7 @@
                   </span>
                   <span data-i18n="social.facebook">Facebook</span>
                 </a>
-                <a class="social-follow__link social-follow__link--wa" role="listitem" href="https://wa.me/998712000020" target="_blank" rel="noopener noreferrer" data-i18n-aria="social.whatsappAria" aria-label="Написать в WhatsApp — +998 71 200-00-20">
+                <a class="social-follow__link social-follow__link--wa" role="listitem" href="https://wa.me/998712000020" target="_blank" rel="noopener noreferrer" data-i18n-aria="social.whatsappAria" aria-label="Написать в WhatsApp — +998 71 200 00 20">
                   <span class="social-follow__icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.3-1.4A9.9 9.9 0 1 0 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3a8.2 8.2 0 1 1 7 3.8Zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.2.2-.3.2-.5 0-.1 0-.4-.1-.5-.1-.1-.5-1.3-.7-1.8-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.9 2.6 1.1 2.6.7 3.1.7.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1 0-.3-.1-.5-.2Z"/></svg>
                   </span>
@@ -6698,11 +6819,11 @@
           <h4 data-i18n="footer.meta">Реквизиты</h4>
           <div class="footer-links footer-meta">
             <span data-i18n="footer.legalEntity">ООО «NeurON Medical Centre»</span>
-            <span class="address-ru">Юнусабадский р-н, Отчопар-2, Чинобод 3-тор, 2</span>
+            <span class="address-ru">Ташкент, Юнусабад, Отчопар-2, 3-й проезд Чинабад, дом 2</span>
             <span class="address-uz">Юнусобод тумани, Отчопар-2 МФЙ, Чинобод 3-тор кўчаси, 2-уй</span>
-            <span class="address-en">Yunusabad dist., Otchopar-2, Chinabad 3rd passage, 2</span>
+            <span class="address-en">Tashkent, Yunusabad district, Otchopar-2 mahalla, 3rd Chinabad passage, building 2</span>
             <a href="mailto:info@neuronmedical.uz">info@neuronmedical.uz</a>
-            <a href="tel:+998712000020">+998 (71) 200-00-20</a>
+            <a href="tel:+998712000020">+998 71 200 00 20</a>
           </div>
         </div>
 
@@ -6799,7 +6920,7 @@ window.NEURON_PRICES = {"updated":"09.09.2026","currency":"сум","categories":
     { id: "prices", titleKey: "search.info.prices", descKey: "search.info.pricesDesc", text: "цены стоимость мрт мскт анализы лаборатория narxlar" },
     { id: "about", titleKey: "search.info.about", descKey: "search.info.aboutDesc", text: "инфраструктура операционные реанимация койки лицензия klinika" },
     { id: "tech", titleKey: "search.info.tech", descKey: "search.info.techDesc", text: "функциональное мрт эндоскопия лазер эмболизация мскт реанимация texnologiya" },
-    { id: "contacts", titleKey: "search.info.contacts", descKey: "search.info.contactsDesc", text: "телефон адрес ташкент юнусабад отчопар чинабад email карта 2гис google яндекс режим работы 200-00-20 neuronmedical aloqa kontaktlar" }
+    { id: "contacts", titleKey: "search.info.contacts", descKey: "search.info.contactsDesc", text: "телефон адрес ташкент юнусабад отчопар чинабад email карта 2гис google яндекс режим работы 200-00-20 200 00 20 neuronmedical aloqa kontaktlar" }
   ];
 
   let SEARCH_INDEX = [];
