@@ -1,0 +1,31 @@
+{
+  "origin": "https://neuronmedical.uz",
+  "default": "uz",
+  "xDefault": "uz",
+  "languages": {
+    "uz": {
+      "htmlLang": "uz",
+      "title": "Neyroxirurg Toshkent | NeurON — neyroxirurgiya va Og‘riq markazi",
+      "description": "Toshkentda neyroxirurg: miya o‘smasi, anevrizma, umurtqa churrasi, uch shoxli nerv nevralgiyasi, epilepsiya, og‘riqni davolash (blokada, RChA, COSMAN G4). NeurON klinikasi.",
+      "keywords": "neyroxirurg Toshkent, neyroxirurgiya, miya o‘smasi, meningioma, glioma, miya anevrizmasi, AVM, umurtqa churrasi, mikrodisketomiya, uch shoxli nerv nevralgiyasi, og‘riq markazi, epidural blokada, RChA, COSMAN G4, epilepsiya jarrohligi",
+      "ogLocale": "uz_UZ",
+      "url": "https://neuronmedical.uz/?lang=uz"
+    },
+    "ru": {
+      "htmlLang": "ru",
+      "title": "Нейрохирург Ташкент | NeurON — нейрохирургия и Центр боли",
+      "description": "Нейрохирург в Ташкенте: опухоль головного мозга, аневризма, грыжа позвоночника, невралгия тройничного нерва, эпилепсия, лечение боли (блокады, РЧА, COSMAN G4). Клиника NeurON.",
+      "keywords": "нейрохирург Ташкент, нейрохирургия, опухоль головного мозга, менингиома, глиома, аневризма головного мозга, АВМ, грыжа позвоночника, микродискэктомия, невралгия тройничного нерва, Центр боли, эпидуральная блокада, РЧА, COSMAN G4, хирургия эпилепсии",
+      "ogLocale": "ru_RU",
+      "url": "https://neuronmedical.uz/?lang=ru"
+    },
+    "en": {
+      "htmlLang": "en",
+      "title": "Neurosurgeon Tashkent | NeurON — Neurosurgery & Pain Management",
+      "description": "Neurosurgeon in Tashkent, Uzbekistan: brain tumor, aneurysm, disc herniation, trigeminal neuralgia, epilepsy surgery, Pain Management (epidural block, RFA, COSMAN G4). NeurON Medical Centre.",
+      "keywords": "neurosurgeon Tashkent, neurosurgery Uzbekistan, brain tumor, meningioma, glioma, cerebral aneurysm, AVM, disc herniation, microdiscectomy, trigeminal neuralgia, Pain Management, epidural block, RFA, COSMAN G4, epilepsy surgery",
+      "ogLocale": "en_US",
+      "url": "https://neuronmedical.uz/?lang=en"
+    }
+  }
+}

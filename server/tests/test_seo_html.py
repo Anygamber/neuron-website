@@ -70,7 +70,7 @@ class SeoHtmlTests(unittest.TestCase):
             clinic["sameAs"],
             [
                 "https://t.me/neuronmedical_center",
-                "https://www.instagram.com/neuronmed.uz/",
+                "https://www.instagram.com/neuron.medical.uz/",
                 "https://www.facebook.com/profile.php?id=61595203029647",
             ],
         )

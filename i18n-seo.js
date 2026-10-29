@@ -99,7 +99,7 @@
       "nav.mobileAria": "Mobile menu",
       "a11y.skip": "Skip to services",
       "social.instagram": "Instagram",
-      "social.instagramAria": "NeurON on Instagram — @neuronmed.uz",
+      "social.instagramAria": "NeurON on Instagram — @neuron.medical.uz",
       "header.search": "Search",
       "header.searchAria": "Open site search",
       "header.contacts": "Contacts",

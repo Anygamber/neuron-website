@@ -1,0 +1,35 @@
+User-agent: *
+Allow: /
+Disallow: /analytics-x7k9m2p4q8w1n5v3
+Disallow: /analytics-x7k9m2p4q8w1n5v3/
+Disallow: /api/v1/analytics/
+Disallow: /api/
+Disallow: /server/
+Disallow: /bot/
+
+# AI search / GEO crawlers — allow citation indexing
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+Sitemap: https://neuronmedical.uz/sitemap.xml
